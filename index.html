@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedBase — Medical Information System Knowledge Base</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fafaf9;
+    --bg2: #f4f3f0;
+    --bg3: #eeede9;
+    --white: #ffffff;
+    --border: #e5e4e0;
+    --border2: #d4d3ce;
+    --text: #1a1916;
+    --muted: #6b6a66;
+    --faint: #a09f9b;
+    --accent: #1d5c4a;
+    --accent-light: #e8f2ee;
+    --accent-mid: #2e7d5f;
+    --accent2: #1e3a5f;
+    --accent2-light: #e8eef5;
+    --warn: #7a4a1e;
+    --warn-light: #fdf0e6;
+    --radius: 8px;
+    --radius-lg: 12px;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Geist', sans-serif; font-weight: 400; line-height: 1.6; font-size: 15px; }
+  .layout { display: flex; min-height: 100vh; }
+
+  .sidebar { width: 252px; flex-shrink: 0; background: var(--white); border-right: 1px solid var(--border); position: sticky; top: 0; height: 100vh; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--border) transparent; display: flex; flex-direction: column; }
+  .sidebar-logo { padding: 1.4rem 1.4rem 1rem; border-bottom: 1px solid var(--border); flex-shrink: 0; }
+  .logo-mark { display: flex; align-items: center; gap: 9px; margin-bottom: 3px; }
+  .logo-icon { width: 28px; height: 28px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo-icon svg { fill: white; }
+  .logo-text { font-family: 'Instrument Serif', serif; font-size: 18px; color: var(--text); letter-spacing: -0.3px; }
+  .logo-sub { font-size: 11px; color: var(--faint); letter-spacing: 0.3px; padding-left: 37px; }
+  .search-wrap { padding: 0.85rem 1rem; border-bottom: 1px solid var(--border); }
+  .search-input { width: 100%; background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.45rem 0.75rem 0.45rem 2.1rem; color: var(--text); font-family: 'Geist', sans-serif; font-size: 13px; outline: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' fill='none' viewBox='0 0 24 24'%3E%3Ccircle cx='11' cy='11' r='8' stroke='%23a09f9b' stroke-width='2'/%3E%3Cpath d='m21 21-4.35-4.35' stroke='%23a09f9b' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: 0.65rem center; transition: border-color 0.15s; }
+  .search-input:focus { border-color: var(--accent-mid); outline: none; }
+  .search-input::placeholder { color: var(--faint); }
+  .sidebar-nav { flex: 1; padding: 0.5rem 0 2rem; overflow-y: auto; }
+  .nav-section { padding: 0 0.75rem; margin-bottom: 0.25rem; }
+  .nav-section-title { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); font-weight: 500; padding: 0.6rem 0.6rem 0.3rem; }
+  .nav-link { display: flex; align-items: center; gap: 8px; padding: 0.38rem 0.6rem; border-radius: 6px; text-decoration: none; color: var(--muted); font-size: 13.5px; transition: all 0.12s; margin-bottom: 1px; }
+  .nav-link:hover { background: var(--bg2); color: var(--text); }
+  .nav-link.active { background: var(--accent-light); color: var(--accent); font-weight: 500; }
+  .nav-icon { width: 15px; height: 15px; opacity: 0.5; flex-shrink: 0; }
+  .nav-link.active .nav-icon { opacity: 1; }
+  .nav-badge { margin-left: auto; font-size: 10px; background: var(--bg3); color: var(--faint); padding: 1px 7px; border-radius: 20px; font-weight: 500; }
+
+  .main { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .topbar { background: rgba(250,250,249,0.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); padding: 0.7rem 2rem; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 10; gap: 1rem; }
+  .breadcrumb { display: flex; align-items: center; gap: 5px; font-size: 13px; color: var(--faint); }
+  .breadcrumb a { color: var(--muted); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--text); }
+  .breadcrumb .sep { color: var(--border2); }
+  .topbar-right { display: flex; gap: 8px; align-items: center; }
+  .btn { padding: 0.38rem 0.9rem; border-radius: 6px; font-family: 'Geist', sans-serif; font-size: 13px; font-weight: 500; cursor: pointer; border: 1px solid var(--border); background: var(--white); color: var(--muted); transition: all 0.12s; }
+  .btn:hover { border-color: var(--border2); color: var(--text); }
+  .btn-primary { background: var(--accent); color: white; border-color: var(--accent); }
+  .btn-primary:hover { background: var(--accent-mid); border-color: var(--accent-mid); color: white; }
+
+  .hero { padding: 3rem 2.5rem 2.5rem; border-bottom: 1px solid var(--border); background: var(--white); animation: fadeUp 0.35s ease both; }
+  .hero-label { display: inline-flex; align-items: center; gap: 6px; font-size: 11.5px; font-weight: 500; color: var(--accent); background: var(--accent-light); padding: 4px 10px; border-radius: 20px; margin-bottom: 1.1rem; }
+  .hero h1 { font-family: 'Instrument Serif', serif; font-size: 38px; font-weight: 400; line-height: 1.2; letter-spacing: -0.5px; color: var(--text); margin-bottom: 0.75rem; max-width: 560px; }
+  .hero h1 em { font-style: italic; color: var(--accent); }
+  .hero p { color: var(--muted); font-size: 15px; max-width: 520px; line-height: 1.65; margin-bottom: 1.75rem; }
+  .hero-stats { display: flex; gap: 2.5rem; flex-wrap: wrap; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .stat-item { display: flex; flex-direction: column; gap: 2px; }
+  .stat-num { font-family: 'Instrument Serif', serif; font-size: 26px; color: var(--text); line-height: 1; }
+  .stat-label { font-size: 12px; color: var(--faint); }
+
+  .content { padding: 2rem 2.5rem 4rem; }
+
+  .tag { display: inline-block; font-size: 11px; font-weight: 500; padding: 3px 8px; border-radius: 5px; }
+  .tag-green { background: var(--accent-light); color: var(--accent); }
+  .tag-blue { background: var(--accent2-light); color: var(--accent2); }
+  .tag-amber { background: var(--warn-light); color: var(--warn); }
+  .tag-gray { background: var(--bg3); color: #5a5956; }
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; }
+
+  .section-hdr { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+  .section-hdr h2 { font-family: 'Instrument Serif', serif; font-size: 19px; font-weight: 400; color: var(--text); letter-spacing: -0.2px; }
+  .section-count { font-size: 12px; color: var(--faint); background: var(--bg2); padding: 2px 9px; border-radius: 20px; }
+
+  .featured { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); display: grid; grid-template-columns: 1fr auto; margin-bottom: 2.5rem; overflow: hidden; animation: fadeUp 0.35s 0.05s ease both; }
+  .featured-body { padding: 2rem; }
+  .featured-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
+  .featured-title { font-family: 'Instrument Serif', serif; font-size: 24px; font-weight: 400; line-height: 1.3; letter-spacing: -0.3px; color: var(--text); margin-bottom: 0.75rem; }
+  .featured-desc { font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 1.25rem; max-width: 520px; }
+  .featured-actions { display: flex; align-items: center; gap: 12px; }
+  .featured-side { width: 180px; background: var(--accent-light); display: flex; align-items: center; justify-content: center; padding: 2rem; flex-shrink: 0; }
+
+  .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; animation: fadeUp 0.35s 0.1s ease both; }
+  .article-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; text-decoration: none; display: flex; flex-direction: column; gap: 0.6rem; transition: border-color 0.15s, box-shadow 0.15s; }
+  .article-card:hover { border-color: var(--border2); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .card-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .icon-green { background: var(--accent-light); }
+  .icon-blue { background: var(--accent2-light); }
+  .icon-amber { background: var(--warn-light); }
+  .diff-pill { font-size: 10.5px; font-weight: 500; padding: 3px 9px; border-radius: 20px; }
+  .diff-basic { background: var(--accent-light); color: var(--accent); }
+  .diff-intermediate { background: var(--accent2-light); color: var(--accent2); }
+  .diff-advanced { background: var(--warn-light); color: var(--warn); }
+  .card-title { font-size: 14.5px; font-weight: 500; color: var(--text); line-height: 1.4; }
+  .card-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+  .card-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 0.75rem; border-top: 1px solid var(--border); margin-top: auto; }
+  .card-meta { font-size: 12px; color: var(--faint); display: flex; gap: 8px; }
+  .card-arrow { font-size: 14px; color: var(--faint); transition: color 0.12s; }
+  .article-card:hover .card-arrow { color: var(--accent); }
+
+  .article-full { max-width: 700px; margin-bottom: 3rem; }
+  .article-header { margin-bottom: 1.75rem; }
+  .article-title { font-family: 'Instrument Serif', serif; font-size: 30px; font-weight: 400; line-height: 1.25; letter-spacing: -0.4px; color: var(--text); margin: 0.75rem 0 0.5rem; }
+  .article-meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--faint); flex-wrap: wrap; }
+  .article-meta .sep { color: var(--border2); }
+  .article-hero-img { width: 100%; height: 280px; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--border); margin: 1.5rem 0; }
+  .article-body h3 { font-family: 'Instrument Serif', serif; font-size: 19px; font-weight: 400; color: var(--text); margin: 1.75rem 0 0.6rem; }
+  .article-body p { font-size: 14.5px; color: var(--muted); line-height: 1.75; margin-bottom: 1rem; }
+  .article-body strong { color: var(--text); font-weight: 500; }
+
+  .code-block { background: #1a1916; border-radius: var(--radius); padding: 1.25rem 1.4rem; margin: 1.25rem 0; overflow-x: auto; position: relative; }
+  .code-label { position: absolute; top: 8px; right: 12px; font-family: 'Geist Mono', monospace; font-size: 10px; color: #666; letter-spacing: 0.5px; text-transform: uppercase; }
+  .code-block code { font-family: 'Geist Mono', monospace; font-size: 12.5px; color: #d4d8c8; line-height: 1.7; white-space: pre; }
+  .inline-code { font-family: 'Geist Mono', monospace; font-size: 12.5px; background: var(--bg3); color: var(--accent); padding: 1px 5px; border-radius: 4px; border: 1px solid var(--border); }
+
+  .callout { border-radius: 0 var(--radius) var(--radius) 0; padding: 0.9rem 1.25rem; margin: 1.25rem 0; }
+  .callout-info { background: var(--accent-light); border-left: 3px solid var(--accent-mid); }
+  .callout-warn { background: var(--warn-light); border-left: 3px solid var(--warn); }
+  .callout-note { background: var(--accent2-light); border-left: 3px solid var(--accent2); }
+  .callout-label { font-size: 10.5px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 0.35rem; }
+  .callout-info .callout-label { color: var(--accent); }
+  .callout-warn .callout-label { color: var(--warn); }
+  .callout-note .callout-label { color: var(--accent2); }
+  .callout p { margin: 0; font-size: 13.5px; color: var(--muted); }
+
+  .steps { list-style: none; margin: 1.25rem 0; }
+  .steps li { display: flex; gap: 12px; margin-bottom: 0.85rem; }
+  .step-num { width: 22px; height: 22px; border-radius: 50%; background: var(--accent); color: white; font-size: 11px; font-weight: 500; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+  .step-text { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+  .img-wrap { margin: 1.5rem 0; }
+  .img-wrap img { width: 100%; border-radius: var(--radius); border: 1px solid var(--border); }
+  .img-cap { font-size: 12px; color: var(--faint); text-align: center; margin-top: 0.5rem; font-style: italic; }
+
+  .data-table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 1.25rem 0; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
+  .data-table th { background: var(--bg2); color: var(--muted); font-weight: 500; font-size: 12px; letter-spacing: 0.3px; text-align: left; padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); }
+  .data-table td { padding: 0.6rem 1rem; border-bottom: 1px solid var(--border); color: var(--muted); vertical-align: top; }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:hover td { background: var(--bg2); }
+  .data-table td:first-child { color: var(--text); font-weight: 500; }
+
+  hr.divider { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+  .videos-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(265px, 1fr)); gap: 1rem; }
+  .video-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; display: flex; flex-direction: column; }
+  .video-card:hover { border-color: var(--border2); box-shadow: 0 2px 12px rgba(0,0,0,0.05); }
+  .video-thumb { height: 140px; background: var(--accent-light); position: relative; display: flex; align-items: center; justify-content: center; }
+  .video-thumb-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .play-ring { width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; transition: background 0.15s, transform 0.15s; }
+  .video-card:hover .play-ring { background: var(--accent); transform: scale(1.06); }
+  .play-tri { width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 10px solid var(--accent); margin-left: 2px; transition: border-left-color 0.15s; }
+  .video-card:hover .play-tri { border-left-color: white; }
+  .video-thumb-label { font-size: 10.5px; font-weight: 500; color: var(--accent); letter-spacing: 0.5px; text-transform: uppercase; }
+  .video-duration { position: absolute; bottom: 8px; right: 10px; background: rgba(29,92,74,0.12); color: var(--accent); font-size: 11px; font-family: 'Geist Mono', monospace; padding: 2px 7px; border-radius: 4px; font-weight: 500; }
+  .video-info { padding: 0.9rem 1rem; }
+  .video-title { font-size: 13.5px; font-weight: 500; color: var(--text); line-height: 1.4; margin-bottom: 0.35rem; }
+  .video-meta { font-size: 12px; color: var(--faint); display: flex; gap: 8px; }
+
+  .page-footer { background: var(--white); border-top: 1px solid var(--border); padding: 2.5rem; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2rem; }
+  .footer-logo { font-family: 'Instrument Serif', serif; font-size: 17px; color: var(--text); margin-bottom: 0.5rem; display: block; }
+  .footer-desc { font-size: 13px; color: var(--faint); line-height: 1.6; max-width: 210px; }
+  .footer-col-title { font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--faint); font-weight: 500; margin-bottom: 0.75rem; }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 0.35rem; }
+  .footer-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.12s; }
+  .footer-links a:hover { color: var(--text); }
+  .footer-bottom { background: var(--bg2); border-top: 1px solid var(--border); padding: 0.9rem 2.5rem; display: flex; justify-content: space-between; font-size: 12px; color: var(--faint); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  @media (max-width: 900px) {
+    .sidebar { display: none; }
+    .featured { grid-template-columns: 1fr; }
+    .featured-side { display: none; }
+    .hero { padding: 2rem 1.5rem 1.75rem; }
+    .content { padding: 1.5rem 1.5rem 3rem; }
+    .topbar { padding: 0.7rem 1.5rem; }
+    .page-footer { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 580px) {
+    .hero h1 { font-size: 26px; }
+    .articles-grid, .videos-grid { grid-template-columns: 1fr; }
+    .page-footer { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-mark">
+        <div class="logo-icon">
+          <svg width="14" height="14" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"/></svg>
+        </div>
+        <span class="logo-text">MedBase</span>
+      </div>
+      <span class="logo-sub">MIS Knowledge Base</span>
+    </div>
+    <div class="search-wrap">
+      <input type="text" class="search-input" placeholder="Search articles…">
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-section-title">Overview</div>
+        <a href="#" class="nav-link active">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h8v2H2z"/></svg>
+          Introduction to MIS
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm1 10H7V7h2v4zm0-6H7V3h2v2z"/></svg>
+          System architecture
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 2h10a1 1 0 011 1v10a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm1 2v8h8V4H4z"/></svg>
+          Quick start guide
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Medical Documentation</div>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"/></svg>
+          Patient admission records
+          <span class="nav-badge">8</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 4h10v2H3zm2-2h6a1 1 0 011 1v9H4V3a1 1 0 011-1zm1 4v6h4V6H6zm0 0"/></svg>
+          Discharge summaries
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v2H2zm1 3h10v9H3V5zm2 2v5h2V7H5zm4 0v5h2V7H9z"/></svg>
+          Clinical notes &amp; SOAP
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2a1 1 0 110 2 1 1 0 010-2zm0 3h.01L8 12H7l-.01-5H8z"/></svg>
+          ICD-10 coding guide
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 3h10v2H3zm0 4h10v2H3zm0 4h6v2H3z"/></svg>
+          Referral documentation
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Hospitalization</div>
+        <a href="#tutorials" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C4.1 1 1 4.1 1 8s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7zm1 10H7V7h2v4zm0-6H7V3h2v2z"/></svg>
+          Hospitalization records
+          <span class="nav-badge">12</span>
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"/></svg>
+          Ward management
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M10 2H6L5 6H1l3 3-1 4 5-2 5 2-1-4 3-3h-4z"/></svg>
+          Operating room scheduling
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12v12H2V2zm2 2v8h8V4H4zm2 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"/></svg>
+          Discharge processing
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">MIS Workflows</div>
+        <a href="#article-full" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M1 3h14v2H1zm2 4h10v2H3zm2 4h6v2H5z"/></svg>
+          Navigating the interface
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M3 1h10a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V2a1 1 0 011-1zm1 4h8V4H4v1zm0 3h8V7H4v1zm0 3h5v-1H4v1z"/></svg>
+          Reporting &amp; exports
+        </a>
+        <a href="#" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 2L2 6v8h4v-4h4v4h4V6z"/></svg>
+          User roles &amp; permissions
+        </a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-section-title">Video guides</div>
+        <a href="#videos" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1zm3 2v6l6-3z"/></svg>
+          Video library
+          <span class="nav-badge">18</span>
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb">
+        <a href="#">MedBase</a>
+        <span class="sep">/</span>
+        <a href="#">Hospitalization</a>
+        <span class="sep">/</span>
+        Records
+      </div>
+      <div class="topbar-right">
+        <button class="btn">Suggest edit</button>
+        <button class="btn btn-primary">Report issue</button>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="hero-label">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a7 7 0 100 14A7 7 0 008 1zm1 10H7V7h2v4zm0-6H7V3h2v2z"/></svg>
+        Medical Information System
+      </div>
+      <h1>Documentation &amp;<br><em>workflow guides</em></h1>
+      <p>Step-by-step tutorials for working with the MIS — from patient admission and hospitalization records to discharge documentation and ICD-10 coding.</p>
+      <div class="hero-stats">
+        <div class="stat-item"><span class="stat-num">64</span><span class="stat-label">Tutorials</span></div>
+        <div class="stat-item"><span class="stat-num">18</span><span class="stat-label">Video walkthroughs</span></div>
+        <div class="stat-item"><span class="stat-num">9</span><span class="stat-label">Document templates</span></div>
+        <div class="stat-item"><span class="stat-num">Apr 2026</span><span class="stat-label">Last updated</span></div>
+      </div>
+    </section>
+
+    <div class="content">
+
+      <div class="section-hdr"><h2>Featured tutorial</h2></div>
+
+      <div class="featured">
+        <div class="featured-body">
+          <div class="featured-eyebrow">Updated · April 2026</div>
+          <h2 class="featured-title">Complete guide to hospitalization records in the MIS</h2>
+          <p class="featured-desc">A thorough walkthrough of creating, editing, filtering, and exporting inpatient hospitalization records — including date range selection, pagination, ward filtering, and structured Excel export.</p>
+          <div class="tags" style="margin-bottom:1.25rem;">
+            <span class="tag tag-green">Hospitalization</span>
+            <span class="tag tag-blue">MIS Workflow</span>
+            <span class="tag tag-gray">Excel export</span>
+          </div>
+          <div class="featured-actions">
+            <a href="#article-full" class="btn btn-primary">Read tutorial</a>
+            <span style="font-size:13px;color:var(--faint);">28 min · Intermediate</span>
+          </div>
+        </div>
+        <div class="featured-side">
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+            <rect x="10" y="8" width="60" height="64" rx="4" stroke="var(--accent)" stroke-width="2.5"/>
+            <line x1="22" y1="24" x2="58" y2="24" stroke="var(--accent)" stroke-width="2"/>
+            <line x1="22" y1="34" x2="58" y2="34" stroke="var(--accent)" stroke-width="2"/>
+            <line x1="22" y1="44" x2="46" y2="44" stroke="var(--accent)" stroke-width="2"/>
+            <rect x="22" y="54" width="36" height="10" rx="2" fill="var(--accent)" opacity="0.25"/>
+            <line x1="38" y1="54" x2="38" y2="64" stroke="var(--accent)" stroke-width="1.5"/>
+            <line x1="22" y1="59" x2="58" y2="59" stroke="var(--accent)" stroke-width="1.5"/>
+          </svg>
+        </div>
+      </div>
+
+      <div id="tutorials" class="section-hdr">
+        <h2>All tutorials</h2>
+        <span class="section-count">64 articles</span>
+      </div>
+
+      <div class="articles-grid">
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-green">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--accent)"><path d="M4 4h12v2H4zm0 5h12v2H4zm0 5h8v2H4z"/></svg>
+            </div>
+            <span class="diff-pill diff-basic">Basic</span>
+          </div>
+          <div class="tags"><span class="tag tag-green">Admission</span><span class="tag tag-gray">Registration</span></div>
+          <div class="card-title">Registering a new patient admission</div>
+          <p class="card-excerpt">How to open a new admission card, fill in personal data, assign a ward, and set the expected length of stay in the MIS.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>12 min</span><span>·</span><span>Mar 18, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-blue">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--accent2)"><path d="M3 4h14v2H3zm2-3h10a1 1 0 011 1v14H4V2a1 1 0 011-1zm1 5v10h8V6H6zm1 2h6v1H7zm0 2h6v1H7zm0 2h3v1H7z"/></svg>
+            </div>
+            <span class="diff-pill diff-intermediate">Intermediate</span>
+          </div>
+          <div class="tags"><span class="tag tag-blue">ICD-10</span><span class="tag tag-gray">Coding</span></div>
+          <div class="card-title">Assigning ICD-10 diagnosis codes</div>
+          <p class="card-excerpt">Step-by-step guide to searching, selecting, and documenting primary and secondary diagnoses using the ICD-10 reference built into the MIS.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>20 min</span><span>·</span><span>Mar 25, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-green">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--accent)"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm0 3a1 1 0 110 2 1 1 0 010-2zm-1 4h2v6H9V9z"/></svg>
+            </div>
+            <span class="diff-pill diff-basic">Basic</span>
+          </div>
+          <div class="tags"><span class="tag tag-green">SOAP Notes</span></div>
+          <div class="card-title">Writing structured clinical SOAP notes</div>
+          <p class="card-excerpt">How to enter Subjective, Objective, Assessment, and Plan sections correctly in the clinical notes module, including auto-save behaviour and version history.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>15 min</span><span>·</span><span>Apr 1, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-amber">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--warn)"><path d="M3 3h14v2H3zm2 4h10v2H5zm2 4h6v2H7zm1 4h4v2H8z"/></svg>
+            </div>
+            <span class="diff-pill diff-advanced">Advanced</span>
+          </div>
+          <div class="tags"><span class="tag tag-amber">Reports</span><span class="tag tag-gray">Export</span></div>
+          <div class="card-title">Generating and exporting hospitalization reports to Excel</div>
+          <p class="card-excerpt">Configure date range filters, department groupings, and column selection — then export structured hospitalization data to a formatted Excel file.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>25 min</span><span>·</span><span>Apr 3, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-blue">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--accent2)"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"/></svg>
+            </div>
+            <span class="diff-pill diff-intermediate">Intermediate</span>
+          </div>
+          <div class="tags"><span class="tag tag-blue">Discharge</span></div>
+          <div class="card-title">Processing a patient discharge — complete checklist</div>
+          <p class="card-excerpt">Walk through all required steps to finalize a discharge: completing the summary, printing forms, updating the bed registry, and closing the episode.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>18 min</span><span>·</span><span>Mar 30, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+        <a href="#" class="article-card">
+          <div class="card-top">
+            <div class="card-icon icon-green">
+              <svg width="18" height="18" viewBox="0 0 20 20" fill="var(--accent)"><path d="M4 2h12a1 1 0 011 1v14a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1zm1 2v12h10V4H5zm2 2h6v2H7zm0 4h6v2H7zm0 4h3v2H7z"/></svg>
+            </div>
+            <span class="diff-pill diff-basic">Basic</span>
+          </div>
+          <div class="tags"><span class="tag tag-green">Templates</span><span class="tag tag-gray">Documents</span></div>
+          <div class="card-title">Using document templates for referral letters</div>
+          <p class="card-excerpt">How to load, populate, and send referral templates from within the patient record, with tips for customizing standard text blocks.</p>
+          <div class="card-footer">
+            <div class="card-meta"><span>10 min</span><span>·</span><span>Mar 12, 2026</span></div>
+            <span class="card-arrow">→</span>
+          </div>
+        </a>
+
+      </div>
+
+      <hr class="divider">
+
+      <div id="article-full" class="section-hdr"><h2>Tutorial in detail</h2></div>
+
+      <article class="article-full">
+        <div class="article-header">
+          <div class="tags">
+            <span class="tag tag-green">Hospitalization</span>
+            <span class="tag tag-blue">MIS Workflow</span>
+            <span class="tag tag-gray">Excel export</span>
+            <span class="diff-pill diff-intermediate" style="font-size:10.5px;padding:3px 9px;">Intermediate</span>
+          </div>
+          <h2 class="article-title">Complete guide to hospitalization records in the MIS</h2>
+          <div class="article-meta">
+            <span>April 5, 2026</span>
+            <span class="sep">·</span>
+            <span>28 min read</span>
+            <span class="sep">·</span>
+            <span>Applies to: h24.ua MIS</span>
+          </div>
+        </div>
+
+        <div class="article-body">
+          <p>The <strong>Hospitalization records</strong> module is the core of daily inpatient work in the MIS. It tracks every active and historical episode — from admission through ward transfers and procedure records to final discharge. This guide covers the complete workflow.</p>
+
+          <div class="callout callout-info">
+            <div class="callout-label">Before you start</div>
+            <p>You need at minimum a <strong>Ward Clerk</strong> or <strong>Attending Physician</strong> role in the MIS. Read-only users can view records but cannot create or edit episodes.</p>
+          </div>
+
+          <h3>Navigating to the hospitalization registry</h3>
+          <p>From the main menu, go to <span class="inline-code">Стаціонар → Журнал госпіталізації</span>. The registry opens showing the current day's active admissions by default. The toolbar at the top controls filtering, date range, and export options.</p>
+
+          <div class="img-wrap">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=900&q=80" alt="Medical professional at computer reviewing patient records">
+            <p class="img-cap">The hospitalization registry — departments listed on the left, episode list on the right</p>
+          </div>
+
+          <h3>Setting a date range filter</h3>
+          <p>By default the registry shows only today. To pull historical data for a report:</p>
+          <ul class="steps">
+            <li><span class="step-num">1</span><span class="step-text">Click the calendar icon in the top toolbar. A date-picker modal appears with "From" and "To" fields.</span></li>
+            <li><span class="step-num">2</span><span class="step-text">Enter your start date in "Від" and end date in "До". The system accepts <span class="inline-code">DD.MM.YYYY</span> format.</span></li>
+            <li><span class="step-num">3</span><span class="step-text">Click <strong>Застосувати</strong>. The table re-loads with all episodes that fall within the selected range.</span></li>
+            <li><span class="step-num">4</span><span class="step-text">Optionally narrow further by department using the left sidebar. Selected departments highlight in blue; deselect to include all.</span></li>
+          </ul>
+
+          <div class="callout callout-warn">
+            <div class="callout-label">Performance note</div>
+            <p>Ranges longer than 90 days may take 10–20 seconds to load under high server load. For large exports, use the background job option under <span class="inline-code">Звіти → Планові завдання</span> instead of the live registry.</p>
+          </div>
+
+          <h3>Reading the hospitalization table columns</h3>
+
+          <table class="data-table">
+            <thead>
+              <tr><th>Column (UA)</th><th>Meaning</th><th>Notes</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>№ картки</td><td>Inpatient record number</td><td>Unique per admission episode</td></tr>
+              <tr><td>ПІБ пацієнта</td><td>Patient full name</td><td>Click to open the full patient record</td></tr>
+              <tr><td>Дата надходження</td><td>Admission date &amp; time</td><td>Populated automatically on admit</td></tr>
+              <tr><td>Відділення</td><td>Department / ward</td><td>Last assigned ward if transferred</td></tr>
+              <tr><td>Основний діагноз</td><td>Primary diagnosis (ICD-10)</td><td>Can be blank until coded by physician</td></tr>
+              <tr><td>Дата виписки</td><td>Discharge date</td><td>Empty for active admissions</td></tr>
+              <tr><td>Ліжко-дні</td><td>Bed-days count</td><td>Auto-calculated; updates nightly</td></tr>
+            </tbody>
+          </table>
+
+          <h3>Exporting records to Excel</h3>
+          <p>After filtering the date range and departments, click <strong>Експорт → Excel</strong> in the top-right of the toolbar. A dialog allows you to choose which columns to include in the export file.</p>
+
+          <div class="code-block">
+            <span class="code-label">Export config</span>
+            <code>Selected columns for standard monthly report:
+  ✓  № картки
+  ✓  ПІБ пацієнта
+  ✓  Дата народження
+  ✓  Дата надходження
+  ✓  Дата виписки
+  ✓  Ліжко-дні
+  ✓  Відділення
+  ✓  Основний діагноз (ICD-10)
+  ✗  Лікар         (attending — exclude for privacy)
+  ✗  Номер палати  (room — optional)
+
+Output: .xlsx  ·  Encoding: UTF-8  ·  Max rows: 10 000</code>
+          </div>
+
+          <div class="callout callout-note">
+            <div class="callout-label">Tip</div>
+            <p>If the export button is greyed out, your session may have timed out. Refresh the page, re-apply your filters, and try again. MIS sessions expire after 30 minutes of inactivity.</p>
+          </div>
+
+          <h3>Common issues and fixes</h3>
+
+          <table class="data-table">
+            <thead>
+              <tr><th>Problem</th><th>Likely cause</th><th>Resolution</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>No discharge date shown</td><td>Episode still active or not saved</td><td>Check ward dashboard; complete discharge if ready</td></tr>
+              <tr><td>ICD-10 field is blank</td><td>Attending has not coded the episode</td><td>Contact responsible physician or use "Uncoded" filter</td></tr>
+              <tr><td>Bed-day count seems wrong</td><td>Midnight recalculation job pending</td><td>Recheck after 02:00; log a ticket if still wrong</td></tr>
+              <tr><td>Garbled Ukrainian text in Excel</td><td>Wrong encoding setting in Excel</td><td>Data → From Text → select UTF-8 on import</td></tr>
+            </tbody>
+          </table>
+
+        </div>
+      </article>
+
+      <hr class="divider">
+
+      <section id="videos">
+        <div class="section-hdr">
+          <h2>Video walkthroughs</h2>
+          <span class="section-count">18 videos</span>
+        </div>
+        <div class="videos-grid">
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">14:22</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Registering a patient admission from scratch</div>
+              <div class="video-meta"><span>Basic</span><span>·</span><span>MIS navigation</span></div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">22:08</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Filtering and exporting hospitalization data to Excel</div>
+              <div class="video-meta"><span>Intermediate</span><span>·</span><span>Reports</span></div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">09:50</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">ICD-10 search and diagnosis coding — live demo</div>
+              <div class="video-meta"><span>Basic</span><span>·</span><span>ICD-10</span></div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">31:45</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Full discharge workflow: summary, forms, and bed release</div>
+              <div class="video-meta"><span>Intermediate</span><span>·</span><span>Discharge</span></div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">18:14</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">Writing SOAP notes — best practices and common mistakes</div>
+              <div class="video-meta"><span>Basic</span><span>·</span><span>Clinical notes</span></div>
+            </div>
+          </a>
+
+          <a href="https://www.youtube.com/" class="video-card" target="_blank" rel="noopener">
+            <div class="video-thumb">
+              <div class="video-thumb-inner">
+                <div class="play-ring"><div class="play-tri"></div></div>
+                <span class="video-thumb-label">Watch guide</span>
+              </div>
+              <span class="video-duration">44:00</span>
+            </div>
+            <div class="video-info">
+              <div class="video-title">User roles and permissions — setting up your team in the MIS</div>
+              <div class="video-meta"><span>Advanced</span><span>·</span><span>Administration</span></div>
+            </div>
+          </a>
+
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="page-footer">
+      <div>
+        <span class="footer-logo">MedBase</span>
+        <p class="footer-desc">Internal knowledge base for medical staff working with the hospital information system. Maintained by the IT &amp; documentation team.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Documentation</div>
+        <ul class="footer-links">
+          <li><a href="#">Admission</a></li>
+          <li><a href="#">Hospitalization</a></li>
+          <li><a href="#">Clinical notes</a></li>
+          <li><a href="#">Discharge</a></li>
+          <li><a href="#">ICD-10</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">MIS modules</div>
+        <ul class="footer-links">
+          <li><a href="#">Outpatient</a></li>
+          <li><a href="#">Inpatient</a></li>
+          <li><a href="#">Laboratory</a></li>
+          <li><a href="#">Pharmacy</a></li>
+          <li><a href="#">Radiology</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Support</div>
+        <ul class="footer-links">
+          <li><a href="#">Report an error</a></li>
+          <li><a href="#">Contact IT helpdesk</a></li>
+          <li><a href="#">Suggest a tutorial</a></li>
+          <li><a href="#">Changelog</a></li>
+        </ul>
+      </div>
+    </footer>
+    <div class="footer-bottom">
+      <span>© 2026 MedBase — internal use only</span>
+      <span>Medical Information System documentation</span>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
