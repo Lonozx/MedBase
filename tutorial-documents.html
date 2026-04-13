@@ -158,8 +158,9 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&q=75"
+                  src="./src/images/Перший крок.jpg"
                   alt="Розділ документи"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Пункт «Документи» у навігації профілю пацієнта
@@ -167,8 +168,9 @@
               </div>
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=75"
+                  src="./src/images/Графа інші історії другий крок.jpg"
                   alt="Очищення фільтрів"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Очищення стандартних фільтрів дати та виконавця
@@ -306,6 +308,29 @@
         const h = document.documentElement;
         fill.style.width =
           (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      });
+    </script>
+    <script>
+      const img = document.getElementById("image-card");
+      console.log("How is this works?");
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          // Safari
+          img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          // IE11
+          img.msRequestFullscreen();
+        }
+      });
+
+      img.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          img.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       });
     </script>
   </body>

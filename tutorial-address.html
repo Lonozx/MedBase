@@ -152,8 +152,9 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&q=75"
+                  src="./src/images/Перший крок.jpg"
                   alt="Перехід до картки пацієнта"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Вкладка «Пацієнти» або перехід через календар
@@ -161,8 +162,9 @@
               </div>
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?w=500&q=75"
+                  src="./src/images/Область і місто другий крок.jpg"
                   alt="Паспортні дані пацієнта"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Вкладка «Паспортні дані» у профілі пацієнта
@@ -172,6 +174,7 @@
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75"
                   alt="Секція адреси"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Секція «Адреси пацієнта» — поля область та місто
@@ -294,6 +297,30 @@
         const h = document.documentElement;
         const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
         fill.style.width = pct + "%";
+      });
+    </script>
+
+    <script>
+      const img = document.getElementById("image-card");
+      console.log("How is this works?");
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          // Safari
+          img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          // IE11
+          img.msRequestFullscreen();
+        }
+      });
+
+      img.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          img.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       });
     </script>
   </body>

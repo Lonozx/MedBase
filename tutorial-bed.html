@@ -153,7 +153,8 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&q=75"
+                  src="./src/images/Госпіталізації Стаціонар Ліжка.jpg"
+                  id="image-card"
                   alt="Стаціонар госпіталізації"
                 />
                 <div class="img-caption">
@@ -180,7 +181,7 @@
                 </div>
               </div>
             </div>
-
+            <div id="fullpage" onclick="this.style.display = 'none'"></div>
             <h3>Покрокова інструкція</h3>
 
             <ul class="steps">
@@ -327,6 +328,29 @@
         const h = document.documentElement;
         fill.style.width =
           (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      });
+    </script>
+    <script>
+      const img = document.getElementById("image-card");
+      console.log("How is this works?");
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          // Safari
+          img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          // IE11
+          img.msRequestFullscreen();
+        }
+      });
+
+      img.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          img.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       });
     </script>
   </body>

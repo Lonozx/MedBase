@@ -153,8 +153,9 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=75"
+                  src="./src/images/Перший крок.jpg"
                   alt="Картка пацієнта"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Відкриваємо картку пацієнта через «Пацієнти» або календар
@@ -162,8 +163,9 @@
               </div>
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=75"
+                  src="./src/images/Графа пільги Другий крок.jpg"
                   alt="Вкладка Історія життя"
+                  id="image-card"
                 />
                 <div class="img-caption">
                   Вкладка «Історія життя» у розділі «Дані пацієнта»
@@ -293,6 +295,29 @@
         const h = document.documentElement;
         fill.style.width =
           (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      });
+    </script>
+    <script>
+      const img = document.getElementById("image-card");
+      console.log("How is this works?");
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          // Safari
+          img.webkitRequestFullscreen();
+        } else if (img.msRequestFullscreen) {
+          // IE11
+          img.msRequestFullscreen();
+        }
+      });
+
+      img.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          img.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       });
     </script>
   </body>
