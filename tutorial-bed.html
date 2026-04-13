@@ -1,215 +1,332 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Розміщення на Ліжку — Стаціонар — MedBase</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="layout">
-
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-mark">
-        <div class="logo-icon"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"/></svg></div>
-        <span class="logo-text">MedBase</span>
-      </div>
-      <span class="logo-sub">База знань МІС</span>
-    </div>
-    <div class="search-wrap">
-      <input type="text" class="search-input" placeholder="Пошук статей…">
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-section-title">Огляд</div>
-        <a href="index.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h8v2H2z"/></svg>
-          Головна
-        </a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-title">Картка пацієнта</div>
-        <a href="tutorial-address.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
-          Додавання області та міста
-        </a>
-        <a href="tutorial-benefits.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>
-          Додавання пільгових граф
-        </a>
-        <a href="tutorial-documents.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"/></svg>
-          Перегляд історій хвороби
-        </a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-title">Стаціонар</div>
-        <a href="tutorial-bed.html" class="nav-link active">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"/></svg>
-          Розміщення на ліжку
-        </a>
-      </div>
-    </nav>
-  </aside>
-
-  <main class="main">
-    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-
-    <header class="topbar">
-      <div class="breadcrumb">
-        <a href="index.html">MedBase</a>
-        <span class="sep">/</span>
-        <a href="index.html">Стаціонар</a>
-        <span class="sep">/</span>
-        Розміщення на ліжку
-      </div>
-      <div class="topbar-right">
-        <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
-      </div>
-    </header>
-
-    <article class="article-wrap">
-      <div class="article-header">
-        <div class="article-eyebrow">Стаціонар · Госпіталізації</div>
-        <h1 class="article-title">Розміщення на Ліжку — Стаціонар</h1>
-        <div class="tags">
-          <span class="tag tag-amber">Стаціонар</span>
-          <span class="tag tag-blue">Госпіталізації</span>
-          <span class="tag tag-gray">Розміщення</span>
-          <span class="diff-pill diff-intermediate">Середній</span>
-        </div>
-        <div class="article-meta">
-          <span>Квітень 2026</span>
-          <span class="sep">·</span>
-          <span>7 кроків</span>
-          <span class="sep">·</span>
-          <span>~10 хвилин</span>
-          <span class="sep">·</span>
-          <span>Застосовується до: h24.ua МІС</span>
-        </div>
-      </div>
-
-      <div class="article-body">
-
-        <p>Розміщення пацієнта на ліжку у стаціонарі — ключовий крок після оформлення госпіталізації. Ця інструкція описує пошук пацієнтів зі статусом <strong>«Очікує розміщення»</strong>, вибір відповідного ліжка за профілем відділення та підтвердження дати і часу розміщення.</p>
-
-        <div class="callout callout-info">
-          <div class="callout-label">Де знаходиться</div>
-          <p>Розділ розміщень: <strong>Стаціонар → Госпіталізації</strong>. Для роботи потрібні права <strong>Медичної сестри відділення</strong> або вище.</p>
-        </div>
-
-        <!-- 3 images -->
-        <div class="article-imgs">
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&q=75" alt="Стаціонар госпіталізації">
-            <div class="img-caption">Розділ «Стаціонар» → «Госпіталізації» у головному меню</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Розміщення на Ліжку — Стаціонар — MedBase</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-mark">
+            <div class="logo-icon">
+              <svg width="14" height="14" viewBox="0 0 20 20">
+                <path
+                  d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"
+                />
+              </svg>
+            </div>
+            <span class="logo-text">MedBase</span>
           </div>
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=75" alt="Список пацієнтів">
-            <div class="img-caption">Список пацієнтів зі статусом «Очікує розміщення» після фільтрації</div>
+          <span class="logo-sub">База знань МІС</span>
+        </div>
+        <div class="search-wrap">
+          <input type="text" class="search-input" placeholder="Пошук статей…" />
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Огляд</div>
+            <a href="index.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h8v2H2z" />
+              </svg>
+              Головна
+            </a>
           </div>
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=500&q=75" alt="Вибір ліжка">
-            <div class="img-caption">Вибір ліжка за профілем відділення та підтвердження розміщення</div>
+          <div class="nav-section">
+            <div class="nav-section-title">Картка пацієнта</div>
+            <a href="tutorial-address.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                />
+              </svg>
+              Додавання області та міста
+            </a>
+            <a href="tutorial-benefits.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z" />
+              </svg>
+              Додавання пільгових граф
+            </a>
+            <a href="tutorial-documents.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
+                />
+              </svg>
+              Перегляд історій хвороби
+            </a>
           </div>
+          <div class="nav-section">
+            <div class="nav-section-title">Стаціонар</div>
+            <a href="tutorial-bed.html" class="nav-link active">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"
+                />
+              </svg>
+              Розміщення на ліжку
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress"></div>
         </div>
 
-        <h3>Покрокова інструкція</h3>
+        <header class="topbar">
+          <div class="breadcrumb">
+            <a href="index.html">MedBase</a>
+            <span class="sep">/</span>
+            <a href="index.html">Стаціонар</a>
+            <span class="sep">/</span>
+            Розміщення на ліжку
+          </div>
+          <div class="topbar-right">
+            <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
+          </div>
+        </header>
 
-        <ul class="steps">
-          <li>
-            <span class="step-num">1</span>
-            <span class="step-text">Переходимо до вкладки <span class="inline-code">«Стаціонар»</span> → <span class="inline-code">«Госпіталізації»</span>.</span>
-          </li>
-          <li>
-            <span class="step-num">2</span>
-            <span class="step-text">Прибираємо зайві фільтри — наприклад, <strong>«Мої госпіталізації»</strong> та <strong>«Очікує розміщення»</strong>, якщо вони активні за замовчуванням.</span>
-          </li>
-          <li>
-            <span class="step-num">3</span>
-            <span class="step-text">Шукаємо за <strong>Відділенням</strong> та <strong>Статусом</strong> <span class="inline-code">«Очікує розміщення»</span>, після чого натискаємо <strong>«Пошук»</strong>. На екрані з'являється список пацієнтів, які відповідають заданим фільтрам.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-text">У правій стороні списку знаходимо та натискаємо <strong>три крапки ⋮</strong>. У випадаючому списку обираємо <strong>«Розмістити на ліжку»</strong>.</span>
-          </li>
-          <li>
-            <span class="step-num">5</span>
-            <span class="step-text">Звертаємо увагу на <strong>Відділення</strong> та <strong>Профіль</strong> у таблиці. Обираємо ліжко відповідно до профілю (наприклад, <em>Кардіохірургічні для дорослих</em>), відмітивши його галочкою ліворуч.</span>
-          </li>
-          <li>
-            <span class="step-num">6</span>
-            <span class="step-text">Натискаємо <strong>«Розмістити»</strong> та вказуємо <strong>дату і час</strong>. При розміщенні сьогодні рекомендується вказувати або <em>сьогоднішню дату</em>, або час <em>до 07:00 ранку наступного дня</em>.</span>
-          </li>
-          <li>
-            <span class="step-num">7</span>
-            <span class="step-text">Після вказання дати і часу натискаємо <strong>«Підтвердити»</strong>. Пацієнт переміщується зі статусу «Очікує розміщення» до відповідного ліжка.</span>
-          </li>
-        </ul>
+        <article class="article-wrap">
+          <div class="article-header">
+            <div class="article-eyebrow">Стаціонар · Госпіталізації</div>
+            <h1 class="article-title">Розміщення на Ліжку — Стаціонар</h1>
+            <div class="tags">
+              <span class="tag tag-amber">Стаціонар</span>
+              <span class="tag tag-blue">Госпіталізації</span>
+              <span class="tag tag-gray">Розміщення</span>
+              <span class="diff-pill diff-intermediate">Середній</span>
+            </div>
+            <div class="article-meta">
+              <span>Квітень 2026</span>
+              <span class="sep">·</span>
+              <span>7 кроків</span>
+              <span class="sep">·</span>
+              <span>~10 хвилин</span>
+              <span class="sep">·</span>
+              <span>Застосовується до: h24.ua МІС</span>
+            </div>
+          </div>
 
-        <div class="callout callout-warn">
-          <div class="callout-label">Важливо щодо часу розміщення</div>
-          <p>Якщо ви розміщуєте пацієнта сьогодні — вказуйте сьогоднішню дату або час до <strong>07:00 наступного ранку</strong>. Це важливо для коректного підрахунку ліжко-днів у звітності. Неправильно вказана дата вплине на статистичні показники відділення.</p>
+          <div class="article-body">
+            <p>
+              Розміщення пацієнта на ліжку у стаціонарі — ключовий крок після
+              оформлення госпіталізації. Ця інструкція описує пошук пацієнтів зі
+              статусом <strong>«Очікує розміщення»</strong>, вибір відповідного
+              ліжка за профілем відділення та підтвердження дати і часу
+              розміщення.
+            </p>
+<iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/d-bj6rkuHgI?si=wZCMnheyMussW8Bn"
+              title="YouTube video player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div class="callout callout-info">
+              <div class="callout-label">Де знаходиться</div>
+              <p>
+                Розділ розміщень: <strong>Стаціонар → Госпіталізації</strong>.
+                Для роботи потрібні права
+                <strong>Медичної сестри відділення</strong> або вище.
+              </p>
+            </div>
+
+            <!-- 3 images -->
+            <div class="article-imgs">
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=500&q=75"
+                  alt="Стаціонар госпіталізації"
+                />
+                <div class="img-caption">
+                  Розділ «Стаціонар» → «Госпіталізації» у головному меню
+                </div>
+              </div>
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=75"
+                  alt="Список пацієнтів"
+                />
+                <div class="img-caption">
+                  Список пацієнтів зі статусом «Очікує розміщення» після
+                  фільтрації
+                </div>
+              </div>
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=500&q=75"
+                  alt="Вибір ліжка"
+                />
+                <div class="img-caption">
+                  Вибір ліжка за профілем відділення та підтвердження розміщення
+                </div>
+              </div>
+            </div>
+            
+            <h3>Покрокова інструкція</h3>
+
+            <ul class="steps">
+              <li>
+                <span class="step-num">1</span>
+                <span class="step-text"
+                  >Переходимо до вкладки
+                  <span class="inline-code">«Стаціонар»</span> →
+                  <span class="inline-code">«Госпіталізації»</span>.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <span class="step-text"
+                  >Прибираємо зайві фільтри — наприклад,
+                  <strong>«Мої госпіталізації»</strong> та
+                  <strong>«Очікує розміщення»</strong>, якщо вони активні за
+                  замовчуванням.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <span class="step-text"
+                  >Шукаємо за <strong>Відділенням</strong> та
+                  <strong>Статусом</strong>
+                  <span class="inline-code">«Очікує розміщення»</span>, після
+                  чого натискаємо <strong>«Пошук»</strong>. На екрані
+                  з'являється список пацієнтів, які відповідають заданим
+                  фільтрам.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">4</span>
+                <span class="step-text"
+                  >У правій стороні списку знаходимо та натискаємо
+                  <strong>три крапки ⋮</strong>. У випадаючому списку обираємо
+                  <strong>«Розмістити на ліжку»</strong>.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">5</span>
+                <span class="step-text"
+                  >Звертаємо увагу на <strong>Відділення</strong> та
+                  <strong>Профіль</strong> у таблиці. Обираємо ліжко відповідно
+                  до профілю (наприклад,
+                  <em>Кардіохірургічні для дорослих</em>), відмітивши його
+                  галочкою ліворуч.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">6</span>
+                <span class="step-text"
+                  >Натискаємо <strong>«Розмістити»</strong> та вказуємо
+                  <strong>дату і час</strong>. При розміщенні сьогодні
+                  рекомендується вказувати або <em>сьогоднішню дату</em>, або
+                  час <em>до 07:00 ранку наступного дня</em>.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">7</span>
+                <span class="step-text"
+                  >Після вказання дати і часу натискаємо
+                  <strong>«Підтвердити»</strong>. Пацієнт переміщується зі
+                  статусу «Очікує розміщення» до відповідного ліжка.</span
+                >
+              </li>
+            </ul>
+
+            <div class="callout callout-warn">
+              <div class="callout-label">Важливо щодо часу розміщення</div>
+              <p>
+                Якщо ви розміщуєте пацієнта сьогодні — вказуйте сьогоднішню дату
+                або час до <strong>07:00 наступного ранку</strong>. Це важливо
+                для коректного підрахунку ліжко-днів у звітності. Неправильно
+                вказана дата вплине на статистичні показники відділення.
+              </p>
+            </div>
+
+            <div class="callout callout-note">
+              <div class="callout-label">Підказка щодо профілю ліжка</div>
+              <p>
+                Ліжко обирається виключно за
+                <strong>профілем відділення</strong>, що вказаний у картці
+                госпіталізації. Наприклад, якщо у картці вказано
+                «Кардіохірургічні для дорослих» — обирайте лише ліжка цього
+                профілю. Невідповідність профілю може призвести до помилок у
+                звітності.
+              </p>
+            </div>
+          </div>
+
+          <div class="article-nav">
+            <a href="tutorial-documents.html" class="nav-card">
+              <div class="nav-card-label">← Попередня</div>
+              <div class="nav-card-title">
+                Перегляд інших історій хвороби та записів
+              </div>
+            </a>
+            <a href="index.html" class="nav-card next">
+              <div class="nav-card-label">На головну →</div>
+              <div class="nav-card-title">Всі інструкції</div>
+            </a>
+          </div>
+        </article>
+
+        <footer class="page-footer">
+          <div>
+            <span class="footer-logo">MedBase</span>
+            <p class="footer-desc">
+              Внутрішня база знань для медичного персоналу. Підтримується
+              IT-відділом.
+            </p>
+          </div>
+          <div>
+            <div class="footer-col-title">Картка пацієнта</div>
+            <ul class="footer-links">
+              <li><a href="tutorial-address.html">Область та місто</a></li>
+              <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
+              <li><a href="tutorial-documents.html">Документи та записи</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Стаціонар</div>
+            <ul class="footer-links">
+              <li><a href="tutorial-bed.html">Розміщення на ліжку</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Підтримка</div>
+            <ul class="footer-links">
+              <li><a href="#">Повідомити про помилку</a></li>
+              <li><a href="#">Зв'язатися з IT</a></li>
+            </ul>
+          </div>
+        </footer>
+        <div class="footer-bottom">
+          <span>© 2026 MedBase — тільки для внутрішнього використання</span>
         </div>
-
-        <div class="callout callout-note">
-          <div class="callout-label">Підказка щодо профілю ліжка</div>
-          <p>Ліжко обирається виключно за <strong>профілем відділення</strong>, що вказаний у картці госпіталізації. Наприклад, якщо у картці вказано «Кардіохірургічні для дорослих» — обирайте лише ліжка цього профілю. Невідповідність профілю може призвести до помилок у звітності.</p>
-        </div>
-
-      </div>
-
-      <div class="article-nav">
-        <a href="tutorial-documents.html" class="nav-card">
-          <div class="nav-card-label">← Попередня</div>
-          <div class="nav-card-title">Перегляд інших історій хвороби та записів</div>
-        </a>
-        <a href="index.html" class="nav-card next">
-          <div class="nav-card-label">На головну →</div>
-          <div class="nav-card-title">Всі інструкції</div>
-        </a>
-      </div>
-    </article>
-
-    <footer class="page-footer">
-      <div>
-        <span class="footer-logo">MedBase</span>
-        <p class="footer-desc">Внутрішня база знань для медичного персоналу. Підтримується IT-відділом.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Картка пацієнта</div>
-        <ul class="footer-links">
-          <li><a href="tutorial-address.html">Область та місто</a></li>
-          <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
-          <li><a href="tutorial-documents.html">Документи та записи</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Стаціонар</div>
-        <ul class="footer-links">
-          <li><a href="tutorial-bed.html">Розміщення на ліжку</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Підтримка</div>
-        <ul class="footer-links">
-          <li><a href="#">Повідомити про помилку</a></li>
-          <li><a href="#">Зв'язатися з IT</a></li>
-        </ul>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      <span>© 2026 MedBase — тільки для внутрішнього використання</span>
+      </main>
     </div>
-  </main>
-</div>
-<script>
-  const fill = document.getElementById('progress');
-  window.addEventListener('scroll', () => {
-    const h = document.documentElement;
-    fill.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
-  });
-</script>
-</body>
+    <script>
+      const fill = document.getElementById("progress");
+      window.addEventListener("scroll", () => {
+        const h = document.documentElement;
+        fill.style.width =
+          (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      });
+    </script>
+  </body>
 </html>

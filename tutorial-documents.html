@@ -1,207 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Перегляд Історій Хвороби та Записів — MedBase</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="layout">
-
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <div class="logo-mark">
-        <div class="logo-icon"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"/></svg></div>
-        <span class="logo-text">MedBase</span>
-      </div>
-      <span class="logo-sub">База знань МІС</span>
-    </div>
-    <div class="search-wrap">
-      <input type="text" class="search-input" placeholder="Пошук статей…">
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-section-title">Огляд</div>
-        <a href="index.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h8v2H2z"/></svg>
-          Головна
-        </a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-title">Картка пацієнта</div>
-        <a href="tutorial-address.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
-          Додавання області та міста
-        </a>
-        <a href="tutorial-benefits.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z"/></svg>
-          Додавання пільгових граф
-        </a>
-        <a href="tutorial-documents.html" class="nav-link active">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"/></svg>
-          Перегляд історій хвороби
-        </a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-section-title">Стаціонар</div>
-        <a href="tutorial-bed.html" class="nav-link">
-          <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"/></svg>
-          Розміщення на ліжку
-        </a>
-      </div>
-    </nav>
-  </aside>
-
-  <main class="main">
-    <div class="progress-bar"><div class="progress-fill" id="progress"></div></div>
-
-    <header class="topbar">
-      <div class="breadcrumb">
-        <a href="index.html">MedBase</a>
-        <span class="sep">/</span>
-        <a href="index.html">Картка пацієнта</a>
-        <span class="sep">/</span>
-        Документи та записи
-      </div>
-      <div class="topbar-right">
-        <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
-      </div>
-    </header>
-
-    <article class="article-wrap">
-      <div class="article-header">
-        <div class="article-eyebrow">Картка пацієнта · Документи</div>
-        <h1 class="article-title">Перегляд Інших Історій Хвороби та Записів</h1>
-        <div class="tags">
-          <span class="tag tag-green">Документи</span>
-          <span class="tag tag-gray">Фільтри</span>
-          <span class="tag tag-blue">Дослідження</span>
-          <span class="diff-pill diff-intermediate">Середній</span>
-        </div>
-        <div class="article-meta">
-          <span>Квітень 2026</span>
-          <span class="sep">·</span>
-          <span>5 кроків</span>
-          <span class="sep">·</span>
-          <span>~7 хвилин</span>
-          <span class="sep">·</span>
-          <span>Застосовується до: h24.ua МІС</span>
-        </div>
-      </div>
-
-      <div class="article-body">
-
-        <p>Розділ <strong>«Документи»</strong> у картці пацієнта містить усі раніше створені медичні записи: виписки, напрямки, результати досліджень та інші документи. За замовчуванням застосовуються фільтри, які обмежують відображення — їх потрібно очистити для повного перегляду.</p>
-
-        <div class="callout callout-info">
-          <div class="callout-label">Що тут можна зробити</div>
-          <p>У розділі «Документи» доступні: <strong>перегляд</strong> усіх наявних записів, <strong>копіювання</strong>, <strong>редагування</strong> та <strong>друк</strong> документів. Також можна <strong>створювати нові документи</strong> через зелену кнопку «Створити документ».</p>
-        </div>
-
-        <!-- 3 images -->
-        <div class="article-imgs">
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&q=75" alt="Розділ документи">
-            <div class="img-caption">Пункт «Документи» у навігації профілю пацієнта</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Перегляд Історій Хвороби та Записів — MedBase</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="sidebar-logo">
+          <div class="logo-mark">
+            <div class="logo-icon">
+              <svg width="14" height="14" viewBox="0 0 20 20">
+                <path
+                  d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"
+                />
+              </svg>
+            </div>
+            <span class="logo-text">MedBase</span>
           </div>
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=75" alt="Очищення фільтрів">
-            <div class="img-caption">Очищення стандартних фільтрів дати та виконавця</div>
+          <span class="logo-sub">База знань МІС</span>
+        </div>
+        <div class="search-wrap">
+          <input type="text" class="search-input" placeholder="Пошук статей…" />
+        </div>
+        <nav class="sidebar-nav">
+          <div class="nav-section">
+            <div class="nav-section-title">Огляд</div>
+            <a href="index.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M2 3h12v2H2zm0 4h12v2H2zm0 4h8v2H2z" />
+              </svg>
+              Головна
+            </a>
           </div>
-          <div class="img-card">
-            <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=75" alt="Список документів">
-            <div class="img-caption">Повний список документів після зняття фільтрів</div>
+          <div class="nav-section">
+            <div class="nav-section-title">Картка пацієнта</div>
+            <a href="tutorial-address.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
+                />
+              </svg>
+              Додавання області та міста
+            </a>
+            <a href="tutorial-benefits.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 1l2 4h4l-3 3 1 4-4-2-4 2 1-4L2 5h4z" />
+              </svg>
+              Додавання пільгових граф
+            </a>
+            <a href="tutorial-documents.html" class="nav-link active">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
+                />
+              </svg>
+              Перегляд історій хвороби
+            </a>
           </div>
+          <div class="nav-section">
+            <div class="nav-section-title">Стаціонар</div>
+            <a href="tutorial-bed.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"
+                />
+              </svg>
+              Розміщення на ліжку
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="main">
+        <div class="progress-bar">
+          <div class="progress-fill" id="progress"></div>
         </div>
 
-        <h3>Покрокова інструкція</h3>
+        <header class="topbar">
+          <div class="breadcrumb">
+            <a href="index.html">MedBase</a>
+            <span class="sep">/</span>
+            <a href="index.html">Картка пацієнта</a>
+            <span class="sep">/</span>
+            Документи та записи
+          </div>
+          <div class="topbar-right">
+            <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
+          </div>
+        </header>
 
-        <ul class="steps">
-          <li>
-            <span class="step-num">1</span>
-            <span class="step-text">Переходимо до вкладки <strong>«Пацієнти»</strong> або через <strong>календар</strong> заходимо до картки потрібного пацієнта.</span>
-          </li>
-          <li>
-            <span class="step-num">2</span>
-            <span class="step-text">Всередині профілю знаходимо пункт <span class="inline-code">«Документи»</span> та переходимо на нього.</span>
-          </li>
-          <li>
-            <span class="step-num">3</span>
-            <span class="step-text">За замовчуванням застосовуються <strong>фільтри дати та виконавця</strong>. Повністю <strong>очищуємо фільтри</strong>, щоб побачити всі наявні документи.</span>
-          </li>
-          <li>
-            <span class="step-num">4</span>
-            <span class="step-text">Після очищення фільтрів нижче <strong>з'являється повний список документів та досліджень</strong>, які були раніше внесені до системи.</span>
-          </li>
-          <li>
-            <span class="step-num">5</span>
-            <span class="step-text">Документи можна <strong>переглянути</strong>, <strong>копіювати</strong>, <strong>редагувати</strong> чи <strong>роздрукувати</strong>. Також можна додати власні документи через зелену кнопку <strong>«Створити документ»</strong>.</span>
-          </li>
-        </ul>
+        <article class="article-wrap">
+          <div class="article-header">
+            <div class="article-eyebrow">Картка пацієнта · Документи</div>
+            <h1 class="article-title">
+              Перегляд Інших Історій Хвороби та Записів
+            </h1>
+            <div class="tags">
+              <span class="tag tag-green">Документи</span>
+              <span class="tag tag-gray">Фільтри</span>
+              <span class="tag tag-blue">Дослідження</span>
+              <span class="diff-pill diff-intermediate">Середній</span>
+            </div>
+            <div class="article-meta">
+              <span>Квітень 2026</span>
+              <span class="sep">·</span>
+              <span>5 кроків</span>
+              <span class="sep">·</span>
+              <span>~7 хвилин</span>
+              <span class="sep">·</span>
+              <span>Застосовується до: h24.ua МІС</span>
+            </div>
+          </div>
 
-        <div class="callout callout-warn">
-          <div class="callout-label">Важливо</div>
-          <p>Якщо після очищення фільтрів список залишається порожнім — у цього пацієнта в системі ще немає жодних документів. Переконайтесь, що ви відкрили картку потрібного пацієнта.</p>
+          <div class="article-body">
+            <p>
+              Розділ <strong>«Документи»</strong> у картці пацієнта містить усі
+              раніше створені медичні записи: виписки, напрямки, результати
+              досліджень та інші документи. За замовчуванням застосовуються
+              фільтри, які обмежують відображення — їх потрібно очистити для
+              повного перегляду.
+            </p>
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/SIHX_u6xqMg?si=3tpJwVqrhkLekwmg"
+              title="YouTube video player"
+              frameborder="0"
+              allow="
+                accelerometer;
+                autoplay;
+                clipboard-write;
+                encrypted-media;
+                gyroscope;
+                picture-in-picture;
+                web-share;
+              "
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+            <div class="callout callout-info">
+              <div class="callout-label">Що тут можна зробити</div>
+              <p>
+                У розділі «Документи» доступні: <strong>перегляд</strong> усіх
+                наявних записів, <strong>копіювання</strong>,
+                <strong>редагування</strong> та
+                <strong>друк</strong> документів. Також можна
+                <strong>створювати нові документи</strong> через зелену кнопку
+                «Створити документ».
+              </p>
+            </div>
+
+            <!-- 3 images -->
+            <div class="article-imgs">
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=500&q=75"
+                  alt="Розділ документи"
+                />
+                <div class="img-caption">
+                  Пункт «Документи» у навігації профілю пацієнта
+                </div>
+              </div>
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?w=500&q=75"
+                  alt="Очищення фільтрів"
+                />
+                <div class="img-caption">
+                  Очищення стандартних фільтрів дати та виконавця
+                </div>
+              </div>
+              <div class="img-card">
+                <img
+                  src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=500&q=75"
+                  alt="Список документів"
+                />
+                <div class="img-caption">
+                  Повний список документів після зняття фільтрів
+                </div>
+              </div>
+            </div>
+
+            <h3>Покрокова інструкція</h3>
+
+            <ul class="steps">
+              <li>
+                <span class="step-num">1</span>
+                <span class="step-text"
+                  >Переходимо до вкладки <strong>«Пацієнти»</strong> або через
+                  <strong>календар</strong> заходимо до картки потрібного
+                  пацієнта.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">2</span>
+                <span class="step-text"
+                  >Всередині профілю знаходимо пункт
+                  <span class="inline-code">«Документи»</span> та переходимо на
+                  нього.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">3</span>
+                <span class="step-text"
+                  >За замовчуванням застосовуються
+                  <strong>фільтри дати та виконавця</strong>. Повністю
+                  <strong>очищуємо фільтри</strong>, щоб побачити всі наявні
+                  документи.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">4</span>
+                <span class="step-text"
+                  >Після очищення фільтрів нижче
+                  <strong
+                    >з'являється повний список документів та досліджень</strong
+                  >, які були раніше внесені до системи.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">5</span>
+                <span class="step-text"
+                  >Документи можна <strong>переглянути</strong>,
+                  <strong>копіювати</strong>, <strong>редагувати</strong> чи
+                  <strong>роздрукувати</strong>. Також можна додати власні
+                  документи через зелену кнопку
+                  <strong>«Створити документ»</strong>.</span
+                >
+              </li>
+            </ul>
+
+            <div class="callout callout-warn">
+              <div class="callout-label">Важливо</div>
+              <p>
+                Якщо після очищення фільтрів список залишається порожнім — у
+                цього пацієнта в системі ще немає жодних документів.
+                Переконайтесь, що ви відкрили картку потрібного пацієнта.
+              </p>
+            </div>
+
+            <div class="callout callout-note">
+              <div class="callout-label">Підказка</div>
+              <p>
+                Кнопку <strong>«Створити документ»</strong> використовуйте для
+                завантаження або введення нових медичних записів — наприклад,
+                сканів зовнішніх довідок чи напрямків від інших закладів.
+              </p>
+            </div>
+          </div>
+
+          <div class="article-nav">
+            <a href="tutorial-benefits.html" class="nav-card">
+              <div class="nav-card-label">← Попередня</div>
+              <div class="nav-card-title">Додавання пільгових граф</div>
+            </a>
+            <a href="tutorial-bed.html" class="nav-card next">
+              <div class="nav-card-label">Наступна →</div>
+              <div class="nav-card-title">Розміщення на ліжку — Стаціонар</div>
+            </a>
+          </div>
+        </article>
+
+        <footer class="page-footer">
+          <div>
+            <span class="footer-logo">MedBase</span>
+            <p class="footer-desc">
+              Внутрішня база знань для медичного персоналу. Підтримується
+              IT-відділом.
+            </p>
+          </div>
+          <div>
+            <div class="footer-col-title">Картка пацієнта</div>
+            <ul class="footer-links">
+              <li><a href="tutorial-address.html">Область та місто</a></li>
+              <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
+              <li><a href="tutorial-documents.html">Документи та записи</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Стаціонар</div>
+            <ul class="footer-links">
+              <li><a href="tutorial-bed.html">Розміщення на ліжку</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Підтримка</div>
+            <ul class="footer-links">
+              <li><a href="#">Повідомити про помилку</a></li>
+              <li><a href="#">Зв'язатися з IT</a></li>
+            </ul>
+          </div>
+        </footer>
+        <div class="footer-bottom">
+          <span>© 2026 MedBase — тільки для внутрішнього використання</span>
         </div>
-
-        <div class="callout callout-note">
-          <div class="callout-label">Підказка</div>
-          <p>Кнопку <strong>«Створити документ»</strong> використовуйте для завантаження або введення нових медичних записів — наприклад, сканів зовнішніх довідок чи напрямків від інших закладів.</p>
-        </div>
-
-      </div>
-
-      <div class="article-nav">
-        <a href="tutorial-benefits.html" class="nav-card">
-          <div class="nav-card-label">← Попередня</div>
-          <div class="nav-card-title">Додавання пільгових граф</div>
-        </a>
-        <a href="tutorial-bed.html" class="nav-card next">
-          <div class="nav-card-label">Наступна →</div>
-          <div class="nav-card-title">Розміщення на ліжку — Стаціонар</div>
-        </a>
-      </div>
-    </article>
-
-    <footer class="page-footer">
-      <div>
-        <span class="footer-logo">MedBase</span>
-        <p class="footer-desc">Внутрішня база знань для медичного персоналу. Підтримується IT-відділом.</p>
-      </div>
-      <div>
-        <div class="footer-col-title">Картка пацієнта</div>
-        <ul class="footer-links">
-          <li><a href="tutorial-address.html">Область та місто</a></li>
-          <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
-          <li><a href="tutorial-documents.html">Документи та записи</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Стаціонар</div>
-        <ul class="footer-links">
-          <li><a href="tutorial-bed.html">Розміщення на ліжку</a></li>
-        </ul>
-      </div>
-      <div>
-        <div class="footer-col-title">Підтримка</div>
-        <ul class="footer-links">
-          <li><a href="#">Повідомити про помилку</a></li>
-          <li><a href="#">Зв'язатися з IT</a></li>
-        </ul>
-      </div>
-    </footer>
-    <div class="footer-bottom">
-      <span>© 2026 MedBase — тільки для внутрішнього використання</span>
+      </main>
     </div>
-  </main>
-</div>
-<script>
-  const fill = document.getElementById('progress');
-  window.addEventListener('scroll', () => {
-    const h = document.documentElement;
-    fill.style.width = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + '%';
-  });
-</script>
-</body>
+    <script>
+      const fill = document.getElementById("progress");
+      window.addEventListener("scroll", () => {
+        const h = document.documentElement;
+        fill.style.width =
+          (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+      });
+    </script>
+  </body>
 </html>
