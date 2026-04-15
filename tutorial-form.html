@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Перегляд Історій Хвороби та Записів — MedBase</title>
+    <title>Робота з шаблонами записів — MedBase</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -51,7 +51,7 @@
               </svg>
               Додавання пільгових граф
             </a>
-            <a href="tutorial-documents.html" class="nav-link active">
+            <a href="tutorial-documents.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -59,9 +59,8 @@
               </svg>
               Перегляд історій хвороби
             </a>
-            
               </a>
-            <a href="tutorial-form.html" class="nav-link">
+            <a href="tutorial-form.html" class="nav-link active">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -69,7 +68,6 @@
               </svg>
               Робота з формою
             </a>
-           
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Стаціонар</div>
@@ -107,7 +105,7 @@
           <div class="article-header">
             <div class="article-eyebrow">Картка пацієнта · Документи</div>
             <h1 class="article-title">
-              Перегляд Інших Історій Хвороби та Записів
+              Пошук та редагування шаблонів
             </h1>
             <div class="tags">
               <span class="tag tag-green">Документи</span>
@@ -118,9 +116,9 @@
             <div class="article-meta">
               <span>Квітень 2026</span>
               <span class="sep">·</span>
-              <span>5 кроків</span>
+              <span>13 кроків</span>
               <span class="sep">·</span>
-              <span>~7 хвилин</span>
+              <span>~9 хвилин</span>
               <span class="sep">·</span>
               <span>Застосовується до: h24.ua МІС</span>
             </div>
@@ -128,16 +126,13 @@
 
           <div class="article-body">
             <p>
-              Розділ <strong>«Документи»</strong> у картці пацієнта містить усі
-              раніше створені медичні записи: виписки, напрямки, результати
-              досліджень та інші документи. За замовчуванням застосовуються
-              фільтри, які обмежують відображення — їх потрібно очистити для
-              повного перегляду.
+              Розділ <strong>«Шаблони»</strong> з переходом до "Шаблони документів"
+              можемо побачити більш детальну інформацію про всі можливі для використання та дублювання шаблони ООКЛ та інших організацій. 
             </p>
             <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/SIHX_u6xqMg?si=3tpJwVqrhkLekwmg"
+              src="https://www.youtube.com/embed/SiVrm-37OL0?si=2cOQmvVwH4W2j8rr"
               title="YouTube video player"
               frameborder="0"
               allow="
@@ -156,12 +151,12 @@
             <div class="callout callout-info">
               <div class="callout-label">Що тут можна зробити</div>
               <p>
-                У розділі «Документи» доступні: <strong>перегляд</strong> усіх
-                наявних записів, <strong>копіювання</strong>,
+                У розділі «Шаблони документів» доступні: <strong>перегляд</strong> усіх
+                наявних шаблонів, <strong>копіювання</strong>,
                 <strong>редагування</strong> та
-                <strong>друк</strong> документів. Також можна
-                <strong>створювати нові документи</strong> через зелену кнопку
-                «Створити документ».
+                <strong>дублювання</strong> шаблонів користувачів. Також можна
+                <strong>шукати шаблони</strong> через зелену кнопку
+                «Знайти готовий шаблон».
               </p>
             </div>
 
@@ -169,17 +164,17 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="./src/images/Перший крок.jpg"
+                  src="./src/images/Шаблони робота №1.png"
                   alt="Розділ документи"
                   id="image-card"
                 />
                 <div class="img-caption">
-                  Пункт «Документи» у навігації профілю пацієнта
+                  Пункт «Шаблони» у навігації профілю пацієнта
                 </div>
               </div>
               <div class="img-card">
                 <img
-                  src="./src/images/Графа інші історії другий крок.jpg"
+                  src="./src/images/Шаблон робота №2.png"
                   alt="Очищення фільтрів"
                   id="image-card"
                 />
@@ -204,45 +199,81 @@
               <li>
                 <span class="step-num">1</span>
                 <span class="step-text"
-                  >Переходимо до вкладки <strong>«Пацієнти»</strong> або через
-                  <strong>календар</strong> заходимо до картки потрібного
-                  пацієнта.</span
+                  >Переходимо на вкладку <strong>Шаблони – Шаблони документів.</strong></span
                 >
               </li>
               <li>
                 <span class="step-num">2</span>
                 <span class="step-text"
-                  >Всередині профілю знаходимо пункт
-                  <span class="inline-code">«Документи»</span> та переходимо на
+                  >Після цього натискаємо на кнопку 
+                  <span class="inline-code">«Знайти готовий шаблон».</span> та переходимо на
                   нього.</span
                 >
               </li>
               <li>
                 <span class="step-num">3</span>
                 <span class="step-text"
-                  >За замовчуванням застосовуються
-                  <strong>фільтри дати та виконавця</strong>. Повністю
-                  <strong>очищуємо фільтри</strong>, щоб побачити всі наявні
-                  документи.</span
+                  >Прибираємо фільтр по Організації <strong>(напр. Комунальне Некомерційне Підприємство «Одеська Обласна Клінічна Лікарня» Одеської Обласної Ради).</strong></span
                 >
               </li>
               <li>
                 <span class="step-num">4</span>
                 <span class="step-text"
-                  >Після очищення фільтрів нижче
-                  <strong
-                    >з'являється повний список документів та досліджень</strong
-                  >, які були раніше внесені до системи.</span
+                  >Вносимо назву шаблону у поле <span class="inline-code">«Пошук по назві шаблону».</span> <strong>(напр. КНП ООКЛ Форма 096).</strong></span
                 >
               </li>
               <li>
                 <span class="step-num">5</span>
                 <span class="step-text"
-                  >Документи можна <strong>переглянути</strong>,
-                  <strong>копіювати</strong>, <strong>редагувати</strong> чи
-                  <strong>роздрукувати</strong>. Також можна додати власні
-                  документи через зелену кнопку
-                  <strong>«Створити документ»</strong>.</span
+                  >Натискаємо на кнопку <span class="inline-code">«Пошук»</span>, нижче з’являється список готових шаблонів.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">6</span>
+                <span class="step-text"
+                  >Шукаємо три точки <strong>(⋮)</strong> та обираємо <span class="inline-code">«Копіювати».</span></span
+                >
+              </li>
+              <li>
+                <span class="step-num">7</span>
+                <span class="step-text"
+                  >Відкривається копія шаблону, в якій ми можемо робити зміни. Одразу можемо змінити назву у вкладці <span class="inline-code">«Налаштування», поле «Назва*».</span></span
+                >
+              </li>
+              <li>
+                <span class="step-num">8</span>
+                <span class="step-text"
+                  >Праворуч знаходиться меню, в якому відображено <strong>список елементів, які можна додати на сторінку шаблону.</strong> Обираємо область, в яку треба додати елемент.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">9</span>
+                <span class="step-text"
+                  >Обираємо <strong>(Рядок, Список, Число, Дата чи Таблиця).</strong> Після чого можна задати параметри <strong>(Назву, варіанти відповіді).</strong></span
+                >
+              </li>
+              <li>
+                <span class="step-num">10</span>
+                <span class="step-text"
+                  >Коли працюєте зі <strong>Списком</strong>, варіанти відповіді додаються через контексте меню. Значок <img src="./src/images/Налаштування.jpg" alt=""> з’являється, коли на елементі затримати курсор миші. Далі <span class="inline-code">«Варіанти відповіді» – «Додати варіанти відповіді».</span> Зверніть увагу на додаткові параметри нижче. Тиснемо <span class="inline-code">«Зберегти».</span></span
+                >
+              </li>
+              <li>
+                <span class="step-num">11</span>
+                <span class="step-text"
+                  >У випадку з <strong>Числом</strong>, в параметрах необхідно вибрати назву поля, яка буде праворуч, і чи буде число округлюватись.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">12</span>
+                <span class="step-text"
+                  >При роботі з любим текстом, можна впливати на форматування, розмір шрифта <strong>(За замовчуванням 12pt) </strong>, курсив, жирність, підкреслення тексту. Налаштування знаходяться в верхній частині екрану. </span
+                >
+              </li>
+              <li>
+                <span class="step-num">13</span>
+                <span class="step-text"
+                  >Після додавання необхідних полів даних, знаходимо кнопку <span class="inline-code">«Зберегти»</span> внизу екрану і новий скопійований шаблон буде на вашому обліковому записі з назвою, яку вказано раніше. </span
                 >
               </li>
             </ul>
@@ -250,18 +281,14 @@
             <div class="callout callout-warn">
               <div class="callout-label">Важливо</div>
               <p>
-                Якщо після очищення фільтрів список залишається порожнім — у
-                цього пацієнта в системі ще немає жодних документів.
-                Переконайтесь, що ви відкрили картку потрібного пацієнта.
+               При роботі з шаблоном переконайтеся, що ви редагуєте копію існуючого шаблону, чи той шаблон, який ви створили самі.
               </p>
             </div>
 
             <div class="callout callout-note">
               <div class="callout-label">Підказка</div>
               <p>
-                Кнопку <strong>«Створити документ»</strong> використовуйте для
-                завантаження або введення нових медичних записів — наприклад,
-                сканів зовнішніх довідок чи напрямків від інших закладів.
+                До інструкцій йду відео-варіант, який показує всі кроки, описані вище. При необхідності, швидкість відео можна зробити повільніше, чи поставити на паузу на кроку, який вас цікавить найбільше.
               </p>
             </div>
           </div>
