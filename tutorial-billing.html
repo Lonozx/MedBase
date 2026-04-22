@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Розміщення на Ліжку — Стаціонар — MedBase</title>
+    <title>Робота з платними послугами — MedBase</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="./src/images/favicon.ico" />
   </head>
@@ -60,6 +60,7 @@
               </svg>
               Перегляд історій хвороби
             </a>
+              </a>
             <a href="tutorial-form.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
@@ -68,7 +69,7 @@
               </svg>
               Робота з Шаблонами
             </a>
-            <a href="tutorial-billing.html" class="nav-link">
+            <a href="#" class="nav-link active">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -79,7 +80,7 @@
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Стаціонар</div>
-            <a href="tutorial-bed.html" class="nav-link active">
+            <a href="tutorial-bed.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"
@@ -100,9 +101,9 @@
           <div class="breadcrumb">
             <a href="index.html">MedBase</a>
             <span class="sep">/</span>
-            <a href="index.html">Стаціонар</a>
+            <a href="index.html">Картка пацієнта</a>
             <span class="sep">/</span>
-            Розміщення на ліжку
+            Область та місто
           </div>
           <div class="topbar-right">
             <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
@@ -111,20 +112,19 @@
 
         <article class="article-wrap">
           <div class="article-header">
-            <div class="article-eyebrow">Стаціонар · Госпіталізації</div>
-            <h1 class="article-title">Розміщення на Ліжку — Стаціонар</h1>
+            <div class="article-eyebrow">Картка пацієнта · Платні послуги</div>
+            <h1 class="article-title">Як працювати з платними послугами</h1>
             <div class="tags">
-              <span class="tag tag-amber">Стаціонар</span>
-              <span class="tag tag-blue">Госпіталізації</span>
-              <span class="tag tag-gray">Розміщення</span>
-              <span class="diff-pill diff-intermediate">Середній</span>
+              <span class="tag tag-green">Картка пацієнта</span>
+              <span class="tag tag-gray">Адреса</span>
+              <span class="diff-pill diff-basic">Базовий</span>
             </div>
             <div class="article-meta">
               <span>Квітень 2026</span>
               <span class="sep">·</span>
-              <span>7 кроків</span>
+              <span>4 кроки</span>
               <span class="sep">·</span>
-              <span>~10 хвилин</span>
+              <span>~5 хвилин</span>
               <span class="sep">·</span>
               <span>Застосовується до: h24.ua МІС</span>
             </div>
@@ -132,16 +132,12 @@
 
           <div class="article-body">
             <p>
-              Розміщення пацієнта на ліжку у стаціонарі — ключовий крок після
-              оформлення госпіталізації. Ця інструкція описує пошук пацієнтів зі
-              статусом <strong>«Очікує розміщення»</strong>, вибір відповідного
-              ліжка за профілем відділення та підтвердження дати і часу
-              розміщення.
+              При роботі з платними послугами, багато спеціалістів стискаються з проблемою, коли по <strong>НСЗУ</strong>, неправильно проведена історія хвороби з платними послугами виявляється <strong>помилковою</strong>.
             </p>
-            <iframe
+            <!-- <iframe
               width="560"
               height="315"
-              src="https://www.youtube.com/embed/d-bj6rkuHgI?si=wZCMnheyMussW8Bn"
+              src="https://www.youtube.com/embed/IukBoZKe6Ew?si=hBGYAiqUvDXZySIM"
               title="YouTube video player"
               frameborder="0"
               allow="
@@ -156,13 +152,12 @@
               referrerpolicy="strict-origin-when-cross-origin"
               allowfullscreen
               class="iframeclass"
-            ></iframe>
+            ></iframe> -->
             <div class="callout callout-info">
               <div class="callout-label">Де знаходиться</div>
               <p>
-                Розділ розміщень: <strong>Стаціонар → Госпіталізації</strong>.
-                Для роботи потрібні права
-                <strong>Медичної сестри відділення</strong> або вище.
+               У секції "Дані медичного запису" бачимо <strong> Облік платної послуги в НСЗУ</strong> та ☐ <span id="blue_statement">інформація</span>.
+               Обов'язково при проведені платних послуг повинно бути наступним чином - ☑ <span id="blue_statement">інформація</span>
               </p>
             </div>
 
@@ -170,136 +165,89 @@
             <div class="article-imgs">
               <div class="img-card">
                 <img
-                  src="./src/images/Госпіталізації Стаціонар Ліжка.jpg"
+                  src="./src/images/Errands.png"
+                  alt="Перехід до картки пацієнта"
                   id="image-card"
-                  alt="Стаціонар госпіталізації"
                 />
                 <div class="img-caption">
-                  Розділ «Стаціонар» → «Госпіталізації» у головному меню
+                  Вкладка «Пацієнти» або перехід через календар
                 </div>
               </div>
               <!-- <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1516549655169-df83a0774514?w=500&q=75"
-                  alt="Список пацієнтів"
+                  src="./src/images/Область і місто другий крок.jpg"
+                  alt="Паспортні дані пацієнта"
+                  id="image-card"
                 />
                 <div class="img-caption">
-                  Список пацієнтів зі статусом «Очікує розміщення» після
-                  фільтрації
+                  Вкладка «Паспортні дані» у профілі пацієнта
                 </div>
               </div>
               <div class="img-card">
                 <img
-                  src="https://images.unsplash.com/photo-1551076805-e1869033e561?w=500&q=75"
-                  alt="Вибір ліжка"
+                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75"
+                  alt="Секція адреси"
+                  id="image-card"
                 />
                 <div class="img-caption">
-                  Вибір ліжка за профілем відділення та підтвердження розміщення
+                  Секція «Адреси пацієнта» — поля область та місто
                 </div>
               </div> -->
             </div>
-            <div id="fullpage" onclick="this.style.display = 'none'"></div>
+
             <h3>Покрокова інструкція</h3>
 
             <ul class="steps">
               <li>
                 <span class="step-num">1</span>
-                <span class="step-text"
-                  >Переходимо до вкладки
-                  <span class="inline-code">«Стаціонар»</span> →
-                  <span class="inline-code">«Госпіталізації»</span>.</span
-                >
+                <span class="step-text">
+                При проведенні платних послуг звертаємо вашу увагу на <strong>галочку</strong>, про яку описано вище. (☑ <span id="blue_statement">інформація</span>)
+                </span>
               </li>
               <li>
                 <span class="step-num">2</span>
                 <span class="step-text"
-                  >Прибираємо зайві фільтри — наприклад,
-                  <strong>«Мої госпіталізації»</strong> та
-                  <strong>«Очікує розміщення»</strong>, якщо вони активні за
-                  замовчуванням.</span
+                  >Після цього необхідно вказати в графі <strong>"Послуги"</strong>, яку саме платну послугу ви провели.</span
                 >
               </li>
               <li>
                 <span class="step-num">3</span>
                 <span class="step-text"
-                  >Шукаємо за <strong>Відділенням</strong> та
-                  <strong>Статусом</strong>
-                  <span class="inline-code">«Очікує розміщення»</span>, після
-                  чого натискаємо <strong>«Пошук»</strong>. На екрані
-                  з'являється список пацієнтів, які відповідають заданим
-                  фільтрам.</span
+                  >Це може бути як звичайна <span class="underline">консультація спеціаліста</span>, так й <span class="underline">інструментальна</span> або <span class="underline">інша діагностика</span>.</span
                 >
               </li>
               <li>
                 <span class="step-num">4</span>
                 <span class="step-text"
-                  >У правій стороні списку знаходимо та натискаємо
-                  <strong>три крапки ⋮</strong>. У випадаючому списку обираємо
-                  <strong>«Розмістити на ліжку»</strong>.</span
-                >
-              </li>
-              <li>
-                <span class="step-num">5</span>
-                <span class="step-text"
-                  >Звертаємо увагу на <strong>Відділення</strong> та
-                  <strong>Профіль</strong> у таблиці. Обираємо ліжко відповідно
-                  до профілю (наприклад,
-                  <em>Кардіохірургічні для дорослих</em>), відмітивши його
-                  галочкою ліворуч.</span
-                >
-              </li>
-              <li>
-                <span class="step-num">6</span>
-                <span class="step-text"
-                  >Натискаємо <strong>«Розмістити»</strong> та вказуємо
-                  <strong>дату і час</strong>. При розміщенні сьогодні
-                  рекомендується вказувати або <em>сьогоднішню дату</em>, або
-                  час <em>до 07:00 ранку наступного дня</em>.</span
-                >
-              </li>
-              <li>
-                <span class="step-num">7</span>
-                <span class="step-text"
-                  >Після вказання дати і часу натискаємо
-                  <strong>«Підтвердити»</strong>. Пацієнт переміщується зі
-                  статусу «Очікує розміщення» до відповідного ліжка.</span
-                >
+                  ><strong>Після додавання та підтвердження</strong> платних послуг, історію можна <strong>підписувати з КЕПом</strong>.
               </li>
             </ul>
 
             <div class="callout callout-warn">
-              <div class="callout-label">Важливо щодо часу розміщення</div>
+              <div class="callout-label">Важливо</div>
               <p>
-                Якщо ви розміщуєте пацієнта сьогодні — вказуйте сьогоднішню дату
-                або час до <strong>07:00 наступного ранку</strong>. Це важливо
-                для коректного підрахунку ліжко-днів у звітності. Неправильно
-                вказана дата вплине на статистичні показники відділення.
+                Незалежно від спеціаліста, дану операцію треба проводити задля відсутності у звітуванні помилок.
               </p>
             </div>
 
             <div class="callout callout-note">
-              <div class="callout-label">Підказка щодо профілю ліжка</div>
+              <div class="callout-label">Підказка</div>
               <p>
-                Ліжко обирається виключно за
-                <strong>профілем відділення</strong>, що вказаний у картці
-                госпіталізації. Наприклад, якщо у картці вказано
-                «Кардіохірургічні для дорослих» — обирайте лише ліжка цього
-                профілю. Невідповідність профілю може призвести до помилок у
-                звітності.
+                Загалом, якщо не зрозуміло, яку послугу може чи не може проводити спеціаліст, зверніться до інформаційного відділу для консультації.
+                Дякуємо за розуміння.
               </p>
             </div>
           </div>
 
+          <!-- Prev/Next nav -->
           <div class="article-nav">
-            <a href="tutorial-documents.html" class="nav-card">
-              <div class="nav-card-label">← Попередня</div>
-              <div class="nav-card-title">
-                Перегляд інших історій хвороби та записів
-              </div>
-            </a>
-            <a href="index.html" class="nav-card next">
-              <div class="nav-card-label">На головну →</div>
+            <a href="index.html" class="nav-card">
+              <div class="nav-card-label">← Назад</div>
               <div class="nav-card-title">Всі інструкції</div>
+            </a>
+            <a href="tutorial-benefits.html" class="nav-card next">
+              <div class="nav-card-label">Наступна →</div>
+              <div class="nav-card-title">Додавання пільгових граф</div>
             </a>
           </div>
         </article>
@@ -319,11 +267,7 @@
               <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
               <li><a href="tutorial-documents.html">Документи та записи</a></li>
               <li><a href="tutorial-form.html">Робота з Шаблонами</a></li>
-              <li>
-                <a href="tutorial-billing.html"
-                  >Як працювати з платними послугами</a
-                >
-              </li>
+              <li><a href="tutorial-billing.html">Як працювати з платними послугами</a></li>
             </ul>
           </div>
           <div>
@@ -349,10 +293,11 @@
       const fill = document.getElementById("progress");
       window.addEventListener("scroll", () => {
         const h = document.documentElement;
-        fill.style.width =
-          (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
+        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+        fill.style.width = pct + "%";
       });
     </script>
+
     <script>
       const img = document.getElementById("image-card");
       console.log("How is this works?");
@@ -362,10 +307,10 @@
         } else if (img.webkitRequestFullscreen) {
           // Safari
           img.webkitRequestFullscreen();
-        } else if (img.webkitRequestFullscreen) {
-          /* Safari/iOS support */
-          img.webkitRequestFullscreen();
-        } else if (img.msRequestFullscreen) {
+        } else if (img.webkitRequestFullscreen) { /* Safari/iOS support */
+    img.webkitRequestFullscreen();
+  }
+        else if (img.msRequestFullscreen) {
           // IE11
           img.msRequestFullscreen();
         }

@@ -67,12 +67,20 @@
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
                 />
               </svg>
-              Робота з формою
+              Робота з Шаблонами
+            </a>
+            <a href="tutorial-billing.html" class="nav-link">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+                <path
+                  d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
+                />
+              </svg>
+              Як працювати з платними послугами
             </a>
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Стаціонар</div>
-            <a href="tutorial-bed.html" class="nav-link">
+            <a href="tutorial-billing.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"
@@ -180,7 +188,7 @@
                   Вкладка «Паспортні дані» у профілі пацієнта
                 </div>
               </div>
-              <div class="img-card">
+              <!-- <div class="img-card">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75"
                   alt="Секція адреси"
@@ -189,7 +197,7 @@
                 <div class="img-caption">
                   Секція «Адреси пацієнта» — поля область та місто
                 </div>
-              </div>
+              </div> -->
             </div>
 
             <h3>Покрокова інструкція</h3>
@@ -280,6 +288,8 @@
               <li><a href="tutorial-address.html">Область та місто</a></li>
               <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
               <li><a href="tutorial-documents.html">Документи та записи</a></li>
+               <li><a href="tutorial-form.html">Робота з Шаблонами</a></li>
+              <li><a href="tutorial-billing.html">Як працювати з платними послугами</a></li>
             </ul>
           </div>
           <div>
@@ -319,7 +329,10 @@
         } else if (img.webkitRequestFullscreen) {
           // Safari
           img.webkitRequestFullscreen();
-        } else if (img.msRequestFullscreen) {
+        }else if (img.webkitRequestFullscreen) { /* Safari/iOS support */
+    img.webkitRequestFullscreen();
+  } 
+        else if (img.msRequestFullscreen) {
           // IE11
           img.msRequestFullscreen();
         }

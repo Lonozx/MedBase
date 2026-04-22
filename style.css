@@ -587,6 +587,12 @@ img:fullscreen {
   border-radius: 4px;
   border: 1px solid var(--border);
 }
+#blue_statement {
+  color: #329ffa;
+}
+.underline {
+  text-decoration: underline rgb(53, 3, 3);
+}
 
 /* Images in article */
 .article-imgs {
