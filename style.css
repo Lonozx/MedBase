@@ -175,7 +175,7 @@ img:fullscreen {
 .nav-link {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   padding: 0.38rem 0.6rem;
   border-radius: 6px;
   text-decoration: none;
