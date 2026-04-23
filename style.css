@@ -841,6 +841,11 @@ hr.divider {
   color: var(--text);
   margin-bottom: 0.75rem;
 }
+.logo-icon a {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
 .featured-desc {
   font-size: 14px;
   color: var(--muted);
