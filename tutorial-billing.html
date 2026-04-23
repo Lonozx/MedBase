@@ -165,11 +165,12 @@
 
             <!-- 3 images -->
             <div class="article-imgs">
-              <div class="img-card">
+              <div class="img-card" id="card1">
                 <img
                   src="./src/images/Errands.png"
                   alt="Перехід до картки пацієнта"
                   id="image-card"
+                   class="modalTrigger"
                 />
                 <div class="img-caption">
                   Вкладка «Пацієнти» або перехід через календар
@@ -196,7 +197,11 @@
                 </div>
               </div> -->
             </div>
-
+<div class="modalWindow" id="modal1">
+              <div class="img-card" id="card3">
+                <img src="" id="imageID" alt="">
+              </div>
+            </div>
             <h3>Покрокова інструкція</h3>
 
             <ul class="steps">
@@ -300,31 +305,6 @@
       });
     </script>
 
-    <script>
-      const img = document.getElementById("image-card");
-      console.log("How is this works?");
-      img.addEventListener("click", () => {
-        if (img.requestFullscreen) {
-          img.requestFullscreen();
-        } else if (img.webkitRequestFullscreen) {
-          // Safari
-          img.webkitRequestFullscreen();
-        } else if (img.webkitRequestFullscreen) { /* Safari/iOS support */
-    img.webkitRequestFullscreen();
-  }
-        else if (img.msRequestFullscreen) {
-          // IE11
-          img.msRequestFullscreen();
-        }
-      });
-
-      img.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-          img.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      });
-    </script>
+   <script src="./scripts/scripts.js"></script>
   </body>
 </html>

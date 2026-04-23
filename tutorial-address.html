@@ -82,7 +82,7 @@
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Стаціонар</div>
-            <a href="tutorial-billing.html" class="nav-link">
+            <a href="tutorial-bed.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M2 2h12a1 1 0 011 1v3H1V3a1 1 0 011-1zm-1 5h14v6a1 1 0 01-1 1H2a1 1 0 01-1-1V7zm3 2v2h2V9H4zm4 0v2h2V9H8z"
@@ -170,21 +170,23 @@
 
             <!-- 3 images -->
             <div class="article-imgs">
-              <div class="img-card">
+              <div class="img-card" id="card1">
                 <img
                   src="./src/images/Перший крок.jpg"
                   alt="Перехід до картки пацієнта"
                   id="image-card"
+                  class="modalTrigger"
                 />
                 <div class="img-caption">
                   Вкладка «Пацієнти» або перехід через календар
                 </div>
               </div>
-              <div class="img-card">
+              <div class="img-card" id="card2">
                 <img
                   src="./src/images/Область і місто другий крок.jpg"
                   alt="Паспортні дані пацієнта"
                   id="image-card"
+                  class="modalTrigger"
                 />
                 <div class="img-caption">
                   Вкладка «Паспортні дані» у профілі пацієнта
@@ -201,7 +203,16 @@
                 </div>
               </div> -->
             </div>
-
+            <div class="modalWindow" id="modal1">
+              <div class="img-card" id="card3">
+                <img src="" id="imageID" alt="">
+              </div>
+            </div>
+            <!-- <div class="modalWindow" id="modal2">
+              <div class="img-card" id="card4">
+              <img src="./src/images/Область і місто другий крок.jpg" alt="">
+              </div>
+            </div> -->
             <h3>Покрокова інструкція</h3>
 
             <ul class="steps">
@@ -322,7 +333,7 @@
       });
     </script>
 
-    <script>
+    <!-- <script>
       const img = document.getElementById("image-card");
       console.log("How is this works?");
       img.addEventListener("click", () => {
@@ -346,7 +357,8 @@
         } else {
           document.exitFullscreen();
         }
-      });
+      }); -->
     </script>
+    <script src="./scripts/scripts.js"></script>
   </body>
 </html>
