@@ -958,6 +958,9 @@ hr.divider {
     width: 100%;
     top: 0;
   }
+  .hero {
+    margin-top: 50px;
+  }
   .page-footer {
     grid-template-columns: 1fr 1fr;
   }
