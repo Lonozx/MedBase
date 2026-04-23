@@ -954,6 +954,7 @@ hr.divider {
   }
   .topbar {
     padding: 0.7rem 1.5rem;
+    position: sticky;
   }
   .page-footer {
     grid-template-columns: 1fr 1fr;
