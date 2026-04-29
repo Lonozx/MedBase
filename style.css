@@ -519,6 +519,7 @@ img:fullscreen {
   display: flex;
   gap: 14px;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .step-num {
   width: 26px;
