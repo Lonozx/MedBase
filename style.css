@@ -831,6 +831,7 @@ hr.divider {
   height: 100vh;
   z-index: 99999;
   padding: 10px;
+  transition: all 0.3s linear 0s;
 }
 .blur {
   filter: blur(4px);

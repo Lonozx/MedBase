@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Додавання Області та Міста — MedBase</title>
+    <title>Додавання Файлів до Шаблону — MedBase</title>
     <link rel="stylesheet" href="style.css" />
-   <link rel="icon" type="image/gif" href="./src/images/favicon.gif" />
+    <link rel="icon" type="image/gif" href="./src/images/favicon.gif" />
   </head>
   <body>
     <div class="layout">
@@ -14,11 +14,11 @@
           <div class="logo-mark">
             <div class="logo-icon">
               <a href="index.html">
-              <svg width="14" height="14" viewBox="0 0 20 20">
-                <path
-                  d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"
-                />
-              </svg>
+                <svg width="14" height="14" viewBox="0 0 20 20">
+                  <path
+                    d="M10 2a8 8 0 100 16A8 8 0 0010 2zm1 11H9V9h2v4zm0-6H9V5h2v2z"
+                  />
+                </svg>
               </a>
             </div>
             <span class="logo-text">MedBase</span>
@@ -40,7 +40,7 @@
           </div>
           <div class="nav-section">
             <div class="nav-section-title">Картка пацієнта</div>
-            <a href="tutorial-address.html" class="nav-link active">
+            <a href="tutorial-address.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M8 1C5.2 1 3 3.2 3 6c0 4 5 9 5 9s5-5 5-9c0-2.8-2.2-5-5-5zm0 6.5a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"
@@ -62,7 +62,6 @@
               </svg>
               Перегляд історій хвороби
             </a>
-              </a>
             <a href="tutorial-form.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
@@ -79,7 +78,7 @@
               </svg>
               Як працювати з платними послугами
             </a>
-             <a href="tutorial-updates.html" class="nav-link">
+            <a href="tutorial-updates.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -87,14 +86,16 @@
               </svg>
               Оновлення по базі консультацій
             </a>
-             <div class="nav-section-title">Шаблони</div>
-            <a href="tutorial-template-files.html" class="nav-link">
-               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+          </div>
+          <div class="nav-section">
+            <div class="nav-section-title">Шаблони</div>
+            <a href="tutorial-template-files.html" class="nav-link active">
+              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M3 2h7l4 4v8a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm6 0v4h4M6 9h4M6 11h2"
                 />
               </svg>
-              Додавання файлів до Шаблонів
+              Додавання файлів до шаблону
             </a>
           </div>
           <div class="nav-section">
@@ -120,9 +121,9 @@
           <div class="breadcrumb">
             <a href="index.html">MedBase</a>
             <span class="sep">/</span>
-            <a href="index.html">Картка пацієнта</a>
+            <a href="index.html">Шаблони</a>
             <span class="sep">/</span>
-            Область та місто
+            Додавання файлів
           </div>
           <div class="topbar-right">
             <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
@@ -131,19 +132,20 @@
 
         <article class="article-wrap">
           <div class="article-header">
-            <div class="article-eyebrow">Картка пацієнта · Паспортні дані</div>
-            <h1 class="article-title">Додавання Області та Міста</h1>
+            <div class="article-eyebrow">Шаблони · Документи пацієнта</div>
+            <h1 class="article-title">Додавання Файлів до Шаблону</h1>
             <div class="tags">
-              <span class="tag tag-green">Картка пацієнта</span>
-              <span class="tag tag-gray">Адреса</span>
-              <!-- <span class="diff-pill diff-basic">Базовий</span> -->
+              <span class="tag tag-green">Шаблони</span>
+              <span class="tag tag-blue">Документи</span>
+              <span class="tag tag-gray">Файли</span>
+              <span class="diff-pill diff-basic">Базовий</span>
             </div>
             <div class="article-meta">
               <span>Квітень 2026</span>
               <span class="sep">·</span>
-              <span>4 кроки</span>
+              <span>5 кроків</span>
               <span class="sep">·</span>
-              <span>~5 хвилин</span>
+              <span>~7 хвилин</span>
               <span class="sep">·</span>
               <span>Застосовується до: h24.ua МІС</span>
             </div>
@@ -151,37 +153,19 @@
 
           <div class="article-body">
             <p>
-              Для коректного ведення медичної документації кожному пацієнту
-              необхідно вказати адресу проживання. Обов'язковими полями є лише
-              <strong>область</strong> та <strong>місто</strong>, позначені
-              червоною зірочкою <strong style="color: #c0392b">*</strong>.
+              При роботі з шаблонами ви маєте можливість додавати
+              <strong>додаткові документи</strong> для зберігання в історії
+              хвороби пацієнта. Це може бути скан зовнішньої довідки, результат
+              дослідження або будь-який інший супровідний файл у підтримуваному
+              форматі.
             </p>
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/IukBoZKe6Ew?si=hBGYAiqUvDXZySIM"
-              title="YouTube video player"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              class="iframeclass"
-            ></iframe>
+
             <div class="callout callout-info">
-              <div class="callout-label">Де знаходиться</div>
+              <div class="callout-label">Підтримувані формати файлів</div>
               <p>
-                Розділ «Адреси пацієнта» розташований у вкладці
-                <strong>«Паспортні дані»</strong> → блок «Дані пацієнта» у
-                профілі пацієнта. Це зазвичай перше, що бачить спеціаліст при
-                відкритті персональної сторінки.
+                Система підтримує наступні формати: <strong>WORD</strong> (.doc,
+                .docx), <strong>PDF</strong> та <strong>Excel</strong> (.xls,
+                .xlsx). Файли інших форматів система не прийме.
               </p>
             </div>
 
@@ -189,117 +173,119 @@
             <div class="article-imgs">
               <div class="img-card" id="card1">
                 <img
-                  src="./src/images/Перший крок.jpg"
-                  alt="Перехід до картки пацієнта"
-                  id="image-card"
+                  src="./src/images/FileAdded.png"
                   class="modalTrigger"
+                  alt="Робота з шаблоном"
                 />
                 <div class="img-caption">
-                  Вкладка «Пацієнти» або перехід через календар
+                  Відкритий шаблон — секція «Файли документу» з'являється після
+                  натискання кнопки додавання
                 </div>
               </div>
               <div class="img-card" id="card2">
                 <img
-                  src="./src/images/Область і місто другий крок.jpg"
-                  alt="Паспортні дані пацієнта"
-                  id="image-card"
+                  src="./src/images/modalwindow.png"
                   class="modalTrigger"
+                  alt="Робота з шаблоном"
                 />
                 <div class="img-caption">
-                  Вкладка «Паспортні дані» у профілі пацієнта
+                  Так приблизно виглдає вікно, коли ви обираєте необхідний файл
+                  у провіднику.
                 </div>
               </div>
-              <!-- <div class="img-card">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75"
-                  alt="Секція адреси"
-                  id="image-card"
-                />
-                <div class="img-caption">
-                  Секція «Адреси пацієнта» — поля область та місто
-                </div>
-              </div> -->
             </div>
             <div class="modalWindow" id="modal1">
               <div class="img-card" id="card3">
-                <img src="" id="imageID" alt="">
+                <img src="" id="imageID" alt="" />
               </div>
             </div>
-            <!-- <div class="modalWindow" id="modal2">
-              <div class="img-card" id="card4">
-              <img src="./src/images/Область і місто другий крок.jpg" alt="">
-              </div>
-            </div> -->
             <h3>Покрокова інструкція</h3>
 
             <ul class="steps">
               <li>
                 <span class="step-num">1</span>
                 <span class="step-text"
-                  >Переходимо до вкладки <strong>«Пацієнти»</strong> або через
-                  <strong>календар</strong> заходимо до картки потрібного
-                  пацієнта.</span
+                  >Коли ви працюєте з шаблоном, натисніть на кнопку додавання
+                  файлу <img src="./src/images/files.png" alt="" />— після цього
+                  внизу екрана з'явиться секція
+                  <strong>«Файли документу»</strong> та зелена кнопка
+                  <strong>«Додати файл»</strong>.</span
                 >
               </li>
               <li>
                 <span class="step-num">2</span>
                 <span class="step-text"
-                  >Всередині профілю знаходимо вкладку
-                  <span class="inline-code">«Паспортні дані»</span> у пункті
-                  <strong>«Дані пацієнта»</strong>. Зазвичай це перше, що бачить
-                  спеціаліст, коли заходить на персональну сторінку
-                  пацієнта.</span
+                  >Натисніть на кнопку <strong>«Додати файл»</strong> —
+                  відкриється вікно провідника, в якому потрібно знайти місце,
+                  де зберігається файл: на <strong>флешці</strong> або
+                  <strong>жорсткому диску</strong> комп'ютера.</span
                 >
               </li>
               <li>
                 <span class="step-num">3</span>
                 <span class="step-text"
-                  >Якщо прокрутити сторінку нижче, побачимо секцію
-                  <strong>«Адреси пацієнта»</strong>, де можна додати область,
-                  місто та повну адресу при необхідності. Обов'язковими полями є
-                  лише <strong>область</strong> та <strong>місто</strong>,
-                  позначені червоною зірочкою
-                  <strong style="color: #c0392b">*</strong>.</span
+                  >Знайдіть потрібний файл та натисніть кнопку
+
+                  <strong>«Відкрити»</strong>. Система підтримує формати
+                  <span class="inline-code">WORD</span>,
+                  <span class="inline-code">PDF</span>,
+                  <span class="inline-code">XLS</span> та
+                  <span class="inline-code">XLSX</span>.</span
                 >
               </li>
               <li>
                 <span class="step-num">4</span>
                 <span class="step-text"
-                  >Після заповнення даних
-                  <strong>зберігаємо</strong> новостворені дані за допомогою
-                  відповідної кнопки.</span
+                  >Щоб переглянути завантажений файл, у графі
+                  <strong>«Дії»</strong> є значок перегляду
+                  <img src="./src/images/show.png" alt="" />. Там само
+                  розташований значок
+                  <strong>
+                    <img src="./src/images/trash.png" alt="" />видалення</strong
+                  >
+                  — для видалення небажаного або доданого випадково файлу.</span
+                >
+              </li>
+              <li>
+                <span class="step-num">5</span>
+                <span class="step-text"
+                  >Після додавання файлу натисніть <strong>«Зберегти»</strong>,
+                  а за потреби також <strong>«Підписати»</strong> — для
+                  збереження всіх виконаних операцій у системі, включно з
+                  доданими файлами.</span
                 >
               </li>
             </ul>
 
             <div class="callout callout-warn">
-              <div class="callout-label">Важливо</div>
+              <div class="callout-label">Зверніть увагу</div>
               <p>
-                Поля «Область» та «Місто» є обов'язковими — без них запис може
-                не зберегтись або призвести до помилок при формуванні звітності.
-                Повна вулична адреса є необов'язковою.
+                Якщо не натиснути <strong>«Зберегти»</strong> після додавання
+                файлу — всі зміни буде втрачено при закритті шаблону. Завжди
+                завершуйте роботу збереженням, а за необхідності — підписом.
               </p>
             </div>
 
             <div class="callout callout-note">
               <div class="callout-label">Підказка</div>
               <p>
-                Якщо пацієнт є внутрішньо переміщеною особою (ВПО), адресу
-                реєстрації та адресу фактичного проживання можна вказати окремо
-                — для цього передбачено два окремі блоки в секції адрес.
+                До одного шаблону можна додати кілька файлів — повторіть кроки
+                2–4 для кожного додаткового документа перед фінальним
+                збереженням.
               </p>
             </div>
           </div>
 
-          <!-- Prev/Next nav -->
           <div class="article-nav">
-            <a href="index.html" class="nav-card">
-              <div class="nav-card-label">← Назад</div>
-              <div class="nav-card-title">Всі інструкції</div>
+            <a href="tutorial-documents.html" class="nav-card">
+              <div class="nav-card-label">← Попередня</div>
+              <div class="nav-card-title">
+                Перегляд інших історій хвороби та записів
+              </div>
             </a>
-            <a href="tutorial-benefits.html" class="nav-card next">
+            <a href="tutorial-bed.html" class="nav-card next">
               <div class="nav-card-label">Наступна →</div>
-              <div class="nav-card-title">Додавання пільгових граф</div>
+              <div class="nav-card-title">Розміщення на ліжку — Стаціонар</div>
             </a>
           </div>
         </article>
@@ -318,21 +304,20 @@
               <li><a href="tutorial-address.html">Область та місто</a></li>
               <li><a href="tutorial-benefits.html">Пільгові графи</a></li>
               <li><a href="tutorial-documents.html">Документи та записи</a></li>
-               <li><a href="tutorial-form.html">Робота з Шаблонами</a></li>
-              <li><a href="tutorial-billing.html">Як працювати з платними послугами</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title">Шаблони</div>
+            <ul class="footer-links">
+              <li>
+                <a href="tutorial-template-files.html">Додавання файлів</a>
+              </li>
             </ul>
           </div>
           <div>
             <div class="footer-col-title">Стаціонар</div>
             <ul class="footer-links">
               <li><a href="tutorial-bed.html">Розміщення на ліжку</a></li>
-            </ul>
-          </div>
-          <div>
-            <div class="footer-col-title">Підтримка</div>
-            <ul class="footer-links">
-              <li><a href="#">Повідомити про помилку</a></li>
-              <li><a href="#">Зв'язатися з IT</a></li>
             </ul>
           </div>
         </footer>
@@ -345,36 +330,9 @@
       const fill = document.getElementById("progress");
       window.addEventListener("scroll", () => {
         const h = document.documentElement;
-        const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
-        fill.style.width = pct + "%";
+        fill.style.width =
+          (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100 + "%";
       });
-    </script>
-
-    <!-- <script>
-      const img = document.getElementById("image-card");
-      console.log("How is this works?");
-      img.addEventListener("click", () => {
-        if (img.requestFullscreen) {
-          img.requestFullscreen();
-        } else if (img.webkitRequestFullscreen) {
-          // Safari
-          img.webkitRequestFullscreen();
-        }else if (img.webkitRequestFullscreen) { /* Safari/iOS support */
-    img.webkitRequestFullscreen();
-  } 
-        else if (img.msRequestFullscreen) {
-          // IE11
-          img.msRequestFullscreen();
-        }
-      });
-
-      img.addEventListener("click", () => {
-        if (!document.fullscreenElement) {
-          img.requestFullscreen();
-        } else {
-          document.exitFullscreen();
-        }
-      }); -->
     </script>
     <script src="./scripts/scripts.js"></script>
   </body>
