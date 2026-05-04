@@ -999,7 +999,10 @@ hr.divider {
   }
   .steps li {
     flex-wrap: wrap;
+    align-items: center;
+    flex-direction: column;
   }
+
   .mobile-logo-nav {
     display: flex;
   }
