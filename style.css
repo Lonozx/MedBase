@@ -950,10 +950,6 @@ hr.divider {
 }
 
 @media (max-width: 900px) {
-  .sidebar {
-    position: absolute;
-    left: -50%;
-  }
   .featured {
     grid-template-columns: 1fr;
   }
@@ -998,6 +994,10 @@ hr.divider {
   }
 }
 @media (max-width: 560px) {
+  .sidebar {
+    position: absolute;
+    left: -50%;
+  }
   * {
     /* overflow-y: hidden; */
   }
