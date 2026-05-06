@@ -31,7 +31,8 @@
         </div>
 
         <div class="search-wrap">
-          <input type="text" class="search-input" placeholder="Пошук статей…" />
+              <input id="search-field" class="search-field" type="text" name="search" placeholder="Custom Search Field" tabindex="1"/>
+          <!-- <input type="text" class="search-input" placeholder="Пошук статей…" /> -->
         </div>
         <nav class="sidebar-nav">
           <div class="nav-section">
@@ -115,7 +116,7 @@
         </nav>
       </aside>
 
-      <main class="main">
+      <main class="main target" id="target">
         <header class="topbar">
           <div class="breadcrumb">
             <a href="index.html">MedBase</a>
@@ -269,7 +270,7 @@
           </div>
 
           <div class="articles-grid">
-            <a href="tutorial-updates.html" class="article-card">
+            <a href="tutorial-updates.html" class="article-card" id="article_1">
               <div class="card-top">
                 <div class="card-icon icon-green">
                   <svg
@@ -600,5 +601,6 @@
         </div>
       </main>
     </div>
+    <script src="./scripts/tut.js"></script>
   </body>
 </html>
