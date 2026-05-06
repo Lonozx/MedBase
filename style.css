@@ -1002,7 +1002,7 @@ hr.divider {
     left: -70%;
   }
   * {
-    /* overflow-y: hidden; */
+    overflow-y: hidden;
   }
   .mobile_only {
     display: flex;
