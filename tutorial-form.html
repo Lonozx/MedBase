@@ -12,6 +12,7 @@
       <aside class="sidebar">
         <div class="sidebar-logo">
           <div class="logo-mark">
+             <span class="closewindow">✕</span>
             <div class="logo-icon">
               <a href="index.html">
               <svg width="14" height="14" viewBox="0 0 20 20">
@@ -26,7 +27,8 @@
           <span class="logo-sub">База знань МІС</span>
         </div>
         <div class="search-wrap">
-          <input type="text" class="search-input" placeholder="Пошук статей…" />
+          <input id="search-field" content= "width=device-width, user-scalable=no", maximum-scale=1" class="search-field search-input" type="text" name="search" placeholder="Пошук по ключовим словам" tabindex="1"/>
+          <!-- <input type="text" class="search-input" placeholder="Пошук статей…" /> -->
         </div>
         <nav class="sidebar-nav">
           <div class="nav-section">
@@ -111,18 +113,19 @@
         </nav>
       </aside>
 
-      <main class="main">
+      <main class="main" id="target">
         <div class="progress-bar">
           <div class="progress-fill" id="progress"></div>
         </div>
 
         <header class="topbar">
           <div class="breadcrumb">
+            <span class="mobile_only"><img class="menu" src="./src/images/menu.jpg" alt=""></span>
             <a href="index.html">MedBase</a>
             <span class="sep">/</span>
             <a href="index.html">Картка пацієнта</a>
-            <span class="sep">/</span>
-            Документи та записи
+            <!-- <span class="sep">/</span>
+            Документи та записи -->
           </div>
           <div class="topbar-right">
             <a href="index.html" class="btn btn-sm">← Всі інструкції</a>
@@ -404,5 +407,7 @@
       });
     </script>
    <script src="./scripts/scripts.js"></script>
+    <script src="./scripts/tut.js"></script>
+    <script src="./scripts/hamburger.js"></script>
   </body>
 </html>
