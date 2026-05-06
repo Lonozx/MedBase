@@ -937,6 +937,9 @@ hr.divider {
 .mobile_only {
   display: none;
 }
+.closewindow {
+  display: none;
+}
 
 @keyframes fadeUp {
   from {
