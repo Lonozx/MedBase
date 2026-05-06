@@ -92,6 +92,12 @@ var highlightClass = "highlightjs",
 /**
  * Function find and highlight text from an HTML search inut box.
  */
+// let sidebar = document.querySelector(".sidebar");
+// document.querySelector("#article_1") = () =>
+//         element.addEventListener("click", () => {
+//             sidebar.classList.remove("show");
+//         });
+
 function highlightProcess(tag, content, term) {
   /**
    * Declare CSS class name of highlighing HTML tags here:
@@ -103,6 +109,9 @@ function highlightProcess(tag, content, term) {
   if (highlightRe.test(block.innerHTML)) {
     block.innerHTML = content;
   }
+  // Source - https://stackoverflow.com/a/69962220
+  // Posted by user17405784
+  // Retrieved 2026-05-06, License - CC BY-SA 4.0
 
   /**
    * If: the search term contains no character, stop the function.
@@ -144,6 +153,13 @@ function highlightProcess(tag, content, term) {
        */
       start = start.reverse();
       end = end.reverse();
+      let sidebar = document.querySelector(".sidebar");
+      if (sidebar.classList.contains("show")) {
+        sidebar.classList.remove("show");
+        console.log("Show class available");
+      } else {
+        console.log("No show class available");
+      }
       const element = document.getElementById("article_1");
       element.scrollIntoView({
         behavior: "smooth",

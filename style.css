@@ -1001,9 +1001,9 @@ hr.divider {
     position: absolute;
     left: -70%;
   }
-  * {
+  /* * {
     overflow-y: hidden;
-  }
+  } */
   .mobile_only {
     display: flex;
     color: black;
@@ -1020,7 +1020,7 @@ hr.divider {
     position: fixed;
     left: 0 !important;
     z-index: 999;
-    top:0;
+    top: 0;
   }
   .steps li {
     flex-wrap: wrap;
