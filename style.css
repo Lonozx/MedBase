@@ -1020,6 +1020,7 @@ hr.divider {
     position: fixed;
     left: 0 !important;
     z-index: 999;
+    top:0;
   }
   .steps li {
     flex-wrap: wrap;
