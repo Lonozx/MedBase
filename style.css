@@ -888,7 +888,7 @@ hr.divider {
 }
 .footer-logo {
   font-family: "Instrument Serif", serif;
-  font-size: 17px;
+  font-size: 1 7px;
   color: var(--text);
   margin-bottom: 0.5rem;
   display: block;
@@ -934,6 +934,9 @@ hr.divider {
 .mobile-logo-nav {
   display: none;
 }
+.mobile_only {
+  display: none;
+}
 
 @keyframes fadeUp {
   from {
@@ -948,7 +951,8 @@ hr.divider {
 
 @media (max-width: 900px) {
   .sidebar {
-    display: none;
+    position: absolute;
+    left: -50%;
   }
   .featured {
     grid-template-columns: 1fr;
@@ -995,7 +999,24 @@ hr.divider {
 }
 @media (max-width: 560px) {
   * {
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
+  }
+  .mobile_only {
+    display: flex;
+    color: black;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .closewindow {
+    display: flex;
+    color: black;
+    cursor: pointer;
+    z-index: 9999;
+  }
+  .show {
+    position: fixed;
+    left: 0 !important;
+    z-index: 999;
   }
   .steps li {
     flex-wrap: wrap;
