@@ -996,7 +996,7 @@ hr.divider {
 @media (max-width: 560px) {
   .sidebar {
     position: absolute;
-    left: -50%;
+    left: -70%;
   }
   * {
     /* overflow-y: hidden; */
