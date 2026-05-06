@@ -1010,6 +1010,11 @@ hr.divider {
     cursor: pointer;
     z-index: 9999;
   }
+  .menu {
+    width: 25px;
+    height: auto;
+    margin: 0 10px 0px 0px;
+  }
   .closewindow {
     display: flex;
     color: black;
