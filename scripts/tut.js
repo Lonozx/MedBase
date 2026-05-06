@@ -160,11 +160,11 @@ function highlightProcess(tag, content, term) {
       } else {
         console.log("No show class available");
       }
-      const element = document.getElementById("article_1");
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      //   const element = document.getElementById("article_1");
+      //   element.scrollIntoView({
+      //     behavior: "smooth",
+      //     block: "start",
+      //   });
       /**
        * Split every characters of the 'content' into an array.
        */
