@@ -997,6 +997,9 @@ hr.divider {
   }
 }
 @media (max-width: 560px) {
+  .desktop-only {
+    display: none;
+  }
   .sidebar {
     position: absolute;
     left: -70%;
