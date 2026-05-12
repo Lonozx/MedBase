@@ -931,6 +931,10 @@ hr.divider {
   font-size: 12px;
   color: var(--faint);
 }
+.symbol {
+  width: 20px;
+  height: auto;
+}
 .mobile-logo-nav {
   display: none;
 }
@@ -939,6 +943,10 @@ hr.divider {
 }
 .closewindow {
   display: none;
+}
+.blacktheme {
+  background: rgba(124, 123, 123, 0.493);
+  color: white;
 }
 
 @keyframes fadeUp {

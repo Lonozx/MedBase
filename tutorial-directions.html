@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Робота з платними послугами — MedBase</title>
+    <title>Робота з направленнями — MedBase</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/gif" href="./src/images/favicon.gif" />
+   <link rel="icon" type="image/gif" href="./src/images/favicon.gif" />
   </head>
   <body>
     <div class="layout">
       <aside class="sidebar">
         <div class="sidebar-logo">
           <div class="logo-mark">
-             <span class="closewindow"><img class="menu" src="./src/images/cross.png" alt=""></span>
+            <span class="closewindow"><img class="menu" src="./src/images/cross.png" alt=""></span>
             <div class="logo-icon desktop-only">
               <a href="index.html">
               <svg width="14" height="14" viewBox="0 0 20 20">
@@ -65,8 +65,8 @@
               Перегляд історій хвороби
             </a>
               </a>
-           
-            <a href="#" class="nav-link active">
+          
+            <a href="tutorial-billing.html" class="nav-link">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -74,7 +74,7 @@
               </svg>
               Як працювати з платними послугами
             </a>
-            <a href="tutorial-directions.html" class="nav-link">
+            <a href="tutorial-directions.html" class="nav-link active">
               <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M4 1h8a1 1 0 011 1v12a1 1 0 01-1 1H4a1 1 0 01-1-1V2a1 1 0 011-1zm1 2v10h6V3H5zm1 2h4v1H6zm0 2h4v1H6zm0 2h2v1H6z"
@@ -107,8 +107,8 @@
               </svg>
               Додавання файлів до Шаблонів
             </a>
-             <a href="tutorial-form.html" class="nav-link">
-              <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
+              <a href="tutorial-form.html" class="nav-link">
+           <svg class="nav-icon" viewBox="0 0 16 16" fill="currentColor">
                 <path
                   d="M3 2h7l4 4v8a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1zm6 0v4h4M6 9h4M6 11h2"
                 />
@@ -140,7 +140,7 @@
             <span class="mobile_only"><img class="menu" src="./src/images/menu.jpg" alt=""></span>
             <a href="index.html">MedBase</a>
             <span class="sep">/</span>
-            <a href="index.html">Картка пацієнта</a>
+            <a href="index.html">Направлення</a>
             <!-- <span class="sep">/</span>
             Область та місто -->
           </div>
@@ -151,17 +151,17 @@
 
         <article class="article-wrap">
           <div class="article-header">
-            <div class="article-eyebrow">Картка пацієнта · Платні послуги</div>
-            <h1 class="article-title">Як працювати з платними послугами</h1>
+            <div class="article-eyebrow">Документи · Направлення</div>
+            <h1 class="article-title">Робота з направленнями</h1>
             <div class="tags">
-              <span class="tag tag-green">Історія хвороби</span>
-              <span class="tag tag-gray">Платні послуги</span>
+              <span class="tag tag-green">Документи</span>
+              <span class="tag tag-gray">Направлення</span>
               <!-- <span class="diff-pill diff-basic">Базовий</span> -->
             </div>
             <div class="article-meta">
-              <span>Квітень 2026</span>
+              <span>Травень 2026</span>
               <span class="sep">·</span>
-              <span>4 кроки</span>
+              <span>3 кроки</span>
               <span class="sep">·</span>
               <span>~5 хвилин</span>
               <span class="sep">·</span>
@@ -171,32 +171,13 @@
 
           <div class="article-body">
             <p>
-              При роботі з платними послугами, багато спеціалістів стискаються з проблемою, коли по <strong>НСЗУ</strong>, неправильно проведена історія хвороби з платними послугами виявляється <strong>помилковою</strong>.
+              Для <strong>створення направлення</strong> необхідно зв'язатись з пацієентом для підтвердження операції.
             </p>
-            <!-- <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/IukBoZKe6Ew?si=hBGYAiqUvDXZySIM"
-              title="YouTube video player"
-              frameborder="0"
-              allow="
-                accelerometer;
-                autoplay;
-                clipboard-write;
-                encrypted-media;
-                gyroscope;
-                picture-in-picture;
-                web-share;
-              "
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen
-              class="iframeclass"
-            ></iframe> -->
+            
             <div class="callout callout-info">
-              <div class="callout-label">Де знаходиться</div>
+              <div class="callout-label">Без направленя</div>
               <p>
-               У секції "Дані медичного запису" бачимо <strong> Облік платної послуги в НСЗУ</strong> та ☐ <span id="blue_statement">інформація</span>.
-               Обов'язково при проведені платних послуг повинно бути наступним чином - ☑ <span id="blue_statement">інформація</span>
+                Без направлення можна проводити <strong>ургентні</strong> звернення, але потім треба буде доказати причину цієї ургентності.
               </p>
             </div>
 
@@ -204,26 +185,27 @@
             <div class="article-imgs">
               <div class="img-card" id="card1">
                 <img
-                  src="./src/images/Errands.png"
+                  src="./src/images/Пріоритет.png"
                   alt="Перехід до картки пацієнта"
                   id="image-card"
-                   class="modalTrigger"
+                  class="modalTrigger"
                 />
                 <div class="img-caption">
-                  Вказання послуг при проденні платних
+                  Пріорітет та направлення
                 </div>
               </div>
-              <!-- <div class="img-card">
+              <!-- <div class="img-card" id="card2">
                 <img
                   src="./src/images/Область і місто другий крок.jpg"
                   alt="Паспортні дані пацієнта"
                   id="image-card"
+                  class="modalTrigger"
                 />
                 <div class="img-caption">
                   Вкладка «Паспортні дані» у профілі пацієнта
                 </div>
-              </div>
-              <div class="img-card">
+              </div> -->
+              <!-- <div class="img-card">
                 <img
                   src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75"
                   alt="Секція адреси"
@@ -234,51 +216,53 @@
                 </div>
               </div> -->
             </div>
-<div class="modalWindow" id="modal1">
+            <div class="modalWindow" id="modal1">
               <div class="img-card" id="card3">
                 <img src="" id="imageID" alt="">
               </div>
             </div>
+            <!-- <div class="modalWindow" id="modal2">
+              <div class="img-card" id="card4">
+              <img src="./src/images/Область і місто другий крок.jpg" alt="">
+              </div>
+            </div> -->
             <h3>Покрокова інструкція</h3>
-
+ <span class="step-text"
+                  >У випадку помилки "Відсутнє електронне направлення", можна зробити наступне</span
+                >
             <ul class="steps">
               <li>
                 <span class="step-num">1</span>
-                <span class="step-text">
-                При проведенні платних послуг звертаємо вашу увагу на <strong>галочку</strong>, про яку описано вище. (☑ <span id="blue_statement">інформація</span>)
-                </span>
+                <span class="step-text"
+                  >Змінити тип прийому з планового на <strong>ургентне</strong>.</span
+                >
               </li>
               <li>
                 <span class="step-num">2</span>
                 <span class="step-text"
-                  >Після цього необхідно вказати в графі <strong><span class="inline-code">"Послуги"</span></strong>, яку саме платну послугу ви провели.</span
+                  >Робити <strong>обидві</strong> операції в одному записі, по одному <strong>спільному направленню </strong>.</span
                 >
               </li>
               <li>
                 <span class="step-num">3</span>
                 <span class="step-text"
-                  >Це може бути як звичайна <span class="underline">консультація спеціаліста</span>, так й <span class="underline">інструментальна</span> або <span class="underline">інша діагностика</span>.</span
+                  >Виписувати електронне направлення до супутного дослідження чи інструментальної діагностики.</span
                 >
               </li>
-              <li>
-                <span class="step-num">4</span>
-                <span class="step-text"
-                  ><strong>Після додавання та підтвердження</strong> платних послуг, історію можна <strong>підписувати з КЕПом</strong>.
-              </li>
+              
             </ul>
 
             <div class="callout callout-warn">
               <div class="callout-label">Важливо</div>
               <p>
-                Незалежно від спеціаліста, дану операцію треба проводити задля відсутності у звітуванні помилок.
-              </p>
+                При проведенні планового прийому, існує необхідність створення плану лікування. <br>При ургентрому такої необхідності немає.
             </div>
 
             <div class="callout callout-note">
               <div class="callout-label">Підказка</div>
               <p>
-                Загалом, якщо не зрозуміло, яку послугу може чи не може проводити спеціаліст, зверніться до інформаційного відділу для консультації.
-                Дякуємо за розуміння.
+                При цьому ургентний прийом подекуди потребує доказ, чому це саме ургент. <br>
+                Будьте уважні.
               </p>
             </div>
           </div>
@@ -322,7 +306,8 @@
               <li><a href="tutorial-documents.html">Перегляд Інших Історій Хвороби та Записів </a></li>
                <li><a href="tutorial-form.html">Робота з Шаблонами</a></li>
               <li><a href="tutorial-billing.html">Як працювати з платними послугами</a></li>
-              </ul>
+              <li><a href="tutorial-directions.html">Робота з направленнями</a></li>
+               </ul>
           </div>
            <div>
             <div class="footer-col-title">Шаблони</div>
@@ -331,6 +316,7 @@
                 <a href="tutorial-template-files.html">Додавання файлів</a>
               </li>
             </ul>
+          
           
             <div class="footer-col-title">Стаціонар</div>
             <ul class="footer-links">
@@ -359,8 +345,34 @@
       });
     </script>
 
-   <script src="./scripts/scripts.js"></script>
-    <script src="./scripts/tut_articles.js"></script>
+    <!-- <script>
+      const img = document.getElementById("image-card");
+      console.log("How is this works?");
+      img.addEventListener("click", () => {
+        if (img.requestFullscreen) {
+          img.requestFullscreen();
+        } else if (img.webkitRequestFullscreen) {
+          // Safari
+          img.webkitRequestFullscreen();
+        }else if (img.webkitRequestFullscreen) { /* Safari/iOS support */
+    img.webkitRequestFullscreen();
+  } 
+        else if (img.msRequestFullscreen) {
+          // IE11
+          img.msRequestFullscreen();
+        }
+      });
+
+      img.addEventListener("click", () => {
+        if (!document.fullscreenElement) {
+          img.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }); -->
+    </script>
+    <script src="./scripts/scripts.js"></script>
+     <script src="./scripts/tut_articles.js"></script>
     <script src="./scripts/hamburger.js"></script>
   </body>
 </html>

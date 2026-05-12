@@ -49,6 +49,10 @@ image1.addEventListener("click", () => {
   if (modal.classList.contains("modal")) {
     modal.classList.remove("modal");
     // main.classList.remove("blur");
+  } else {
+    modal.classList.add("modal");
+    // main.classList.add("blur");
+    console.log("It is");
   }
 });
 
