@@ -963,6 +963,11 @@ hr.divider {
   border: 1px grey solid;
   padding: 5px 100px 5px 5px;
 }
+
+input[type="checkbox"]:checked + span {
+  color: green !important;
+  font-weight: bold;
+}
 #blue {
   color: #32a3fa;
 }
