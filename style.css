@@ -934,6 +934,10 @@ hr.divider {
 .handled {
   display: none;
 }
+.interactive {
+  border: 1px solid grey;
+  padding: 10px;
+}
 .symbol {
   width: 20px;
   height: auto;
