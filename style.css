@@ -957,7 +957,7 @@ hr.divider {
 }
 .dialog {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 #tabled {
   border: 1px grey solid;
